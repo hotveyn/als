@@ -1,0 +1,50 @@
+* {
+  font-family: "Montserrat", sans-serif;
+  scroll-behavior: smooth;
+}
+
+.container {
+  width: adpval(320, 1620);
+  padding: 0 5px;
+  margin: 0 auto;
+  position: relative;
+}
+
+
+.w {
+  width: 100% !important;
+}
+
+.h1 {
+  font-size: adpval(36, 60);
+  font-style: normal;
+  font-weight: 900;
+  line-height: 73.14px;
+  text-transform: uppercase;
+}
+
+.h2 {
+  font-size: adpval(28, 32);
+  font-style: normal;
+  font-weight: 700;
+  line-height: 39.01px;
+  letter-spacing: 2.52px;
+  text-transform: uppercase;
+}
+
+.h3 {
+  font-size: adpval(16, 24);
+  font-weight: 600;
+  line-height: 29.05px;
+}
+
+.p {
+  color: $grey;
+  font-weight: 500;
+  font-size: adpval(12, 20);
+}
+
+
+:root{
+  --swiper-pagination-color: #D2B48CFF;
+}
