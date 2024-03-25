@@ -17,7 +17,7 @@
         />
         <img
           class="brands__logo"
-          src="/images/brands/armani.png"
+          src="/images/brands/Armani.png"
           alt="armani"
         />
         <img
