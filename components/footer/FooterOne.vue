@@ -1,0 +1,98 @@
+<template>
+  <footer class="footer">
+    <div class="container footer__content">
+      <div class="footer__first">
+        <img src="/images/baselogo.svg" alt="logo" />
+        <p class="footer__curse">
+          1€ = {{ new Intl.NumberFormat("ru-Ru").format(109.02) }}₽
+        </p>
+        <div class="footer__socials">
+          <a href="#">
+            <img src="/icons/social/vk.svg" alt="vk" />
+          </a>
+          <a href="#">
+            <img src="/icons/social/telegram.svg" alt="telegran" />
+          </a>
+        </div>
+      </div>
+      <div class="footer__second">
+        <p class="footer__menu">Меню</p>
+        <nav class="footer__nav ft-nav">
+          <ul class="ft-nav__list">
+            <li class="ft-nav__el">
+              <a href="#" class="ft-nav__link">Бренды</a>
+            </li>
+            <li class="ft-nav__el">
+              <a href="#" class="ft-nav__link">Акции</a>
+            </li>
+            <li class="ft-nav__el">
+              <a href="#" class="ft-nav__link">Преимущества </a>
+            </li>
+            <li class="ft-nav__el">
+              <a href="#" class="ft-nav__link">Товары</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </footer>
+</template>
+
+<style scoped lang="scss">
+.footer {
+  min-height: 390px;
+  margin-top: 100px;
+  padding-top: 40px;
+  padding-bottom: 73px;
+  box-shadow: 2.5px 0 3.5px 0 rgba(0, 55, 0, 0.15);
+
+  &__content {
+    display: flex;
+    gap: 110px;
+  }
+
+  &__menu {
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 29.26px;
+  }
+
+  &__nav {
+    margin-top: 20px;
+  }
+
+  &__socials {
+    display: flex;
+    gap: 5px;
+  }
+
+  &__first {
+    display: grid;
+    gap: 25px;
+  }
+  &__curse {
+    padding: 10px 15px;
+    border-radius: 50px;
+    border: 3px solid $green;
+
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 24.38px;
+    width: fit-content;
+  }
+}
+
+.ft-nav {
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+  }
+
+  &__link {
+    color: #000000cc;
+    font-weight: 600;
+    font-size: 20px;
+  }
+}
+</style>

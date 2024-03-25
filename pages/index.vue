@@ -7,6 +7,7 @@
       <SectionBrands />
       <SectionWhy />
       <SectionCatalog />
+      <SectionCompute />
     </div>
   </div>
 </template>

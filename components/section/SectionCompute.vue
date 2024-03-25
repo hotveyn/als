@@ -43,6 +43,7 @@ const kinds = ref([
   <div class="compute">
     <div class="compute__content container">
       <h2 class="compute__h2 h2">Расчёт цены</h2>
+      <ComputeMenu />
       <div class="compute__products"></div>
     </div>
   </div>

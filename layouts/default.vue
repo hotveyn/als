@@ -4,5 +4,6 @@
     <div class="content">
       <slot />
     </div>
+    <FooterOne />
   </div>
 </template>
