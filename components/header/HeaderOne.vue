@@ -1,17 +1,21 @@
+<script setup lang="ts"></script>
+
 <template>
   <header class="header">
     <div class="container header__content">
-      <div class="logo">
-        <img src="/images/baselogo.svg" alt="logo" />
-      </div>
+      <div class="logo"><img src="/images/baselogo.svg" alt="logo" /></div>
       <nav class="header__nav nav">
         <ul class="nav__list">
-          <li class="nav__el"><a class="nav__link" href="#a">Главная</a></li>
-          <li class="nav__el"><a class="nav__link" href="#a">Акции</a></li>
-          <li class="nav__el"><a class="nav__link" href="#a">Бренды</a></li>
-          <li class="nav__el"><a class="nav__link" href="#a">Товары</a></li>
+          <li class="nav__el"><a class="nav__link" href="#hero">Главная</a></li>
+          <li class="nav__el"><a class="nav__link" href="#hero">Акции</a></li>
           <li class="nav__el">
-            <a class="nav__link" href="#a">Преимущества</a>
+            <a class="nav__link" href="#brands">Бренды</a>
+          </li>
+          <li class="nav__el">
+            <a class="nav__link" href="#catalog">Товары</a>
+          </li>
+          <li class="nav__el">
+            <a class="nav__link" href="#why-we-are">Преимущества</a>
           </li>
         </ul>
       </nav>

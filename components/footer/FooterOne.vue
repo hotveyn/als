@@ -1,19 +1,17 @@
+<script setup lang="ts">
+const { data: euro } = useFetch("/api/euro");
+const { data: socials } = useFetch("/api/socials");
+</script>
+
 <template>
   <footer class="footer">
     <div class="container footer__content">
       <div class="footer__first">
         <img src="/images/baselogo.svg" alt="logo" />
         <p class="footer__curse">
-          1€ = {{ new Intl.NumberFormat("ru-Ru").format(109.02) }}₽
+          1€ = {{ new Intl.NumberFormat("ru-Ru").format(euro || 0) }}₽
         </p>
-        <div class="footer__socials">
-          <a href="#">
-            <img src="/icons/social/vk.svg" alt="vk" />
-          </a>
-          <a href="#">
-            <img src="/icons/social/telegram.svg" alt="telegran" />
-          </a>
-        </div>
+        <p class="footer__license">2024@ALS</p>
       </div>
       <div class="footer__second">
         <p class="footer__menu">Меню</p>
@@ -34,21 +32,52 @@
           </ul>
         </nav>
       </div>
+      <div class="footer__second">
+        <p class="footer__menu">Контакты</p>
+        <nav class="footer__nav ft-nav">
+          <ul class="ft-nav__list">
+            <li class="ft-nav__el">
+              <a href="mail:example@mail.com" class="ft-nav__link"
+                >Почта: {{ socials!.email }}</a
+              >
+            </li>
+            <li class="ft-nav__el">
+              <a :href="`tel:${socials?.phone}`" class="ft-nav__link"
+                >Телефон: {{ socials?.phone }}</a
+              >
+            </li>
+            <li class="ft-nav__el">
+              <div class="footer__socials">
+                <a :href="socials?.vk">
+                  <img src="/icons/social/vk.svg" alt="vk" />
+                </a>
+                <a :href="socials?.telegram">
+                  <img src="/icons/social/telegram.svg" alt="telegran" />
+                </a>
+              </div>
+            </li>
+          </ul>
+        </nav>
+      </div>
     </div>
   </footer>
 </template>
 
 <style scoped lang="scss">
 .footer {
-  min-height: 390px;
   margin-top: 100px;
-  padding-top: 40px;
-  padding-bottom: 73px;
+  padding: 40px 0;
   box-shadow: 2.5px 0 3.5px 0 rgba(0, 55, 0, 0.15);
 
   &__content {
     display: flex;
     gap: 110px;
+  }
+
+  &__license {
+    color: black;
+    font-weight: 600;
+    font-size: 20px;
   }
 
   &__menu {
@@ -68,14 +97,14 @@
 
   &__first {
     display: grid;
-    gap: 25px;
+    gap: 20px;
   }
   &__curse {
     padding: 10px 15px;
     border-radius: 50px;
     border: 3px solid $green;
-
     font-weight: 600;
+    height: fit-content;
     font-size: 20px;
     line-height: 24.38px;
     width: fit-content;

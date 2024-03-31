@@ -3,11 +3,13 @@
 <template>
   <div class="index">
     <div class="index__sections">
-      <SectionOpener />
+      <SectionHero />
       <SectionBrands />
       <SectionWhy />
       <SectionCatalog />
       <SectionCompute />
+      <SectionWorks />
+      <SectionFAQ />
     </div>
   </div>
 </template>

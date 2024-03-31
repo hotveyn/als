@@ -1,24 +1,16 @@
 <script setup lang="ts">
-const swiper = ref<Swiper>(null);
-const lastOrders = ref<any>([
-  { id: 1, imgLink: "images/test1.png", price: 98874 },
-  { id: 2, imgLink: "images/test1.png", price: 98874 },
-  { id: 3, imgLink: "images/test1.png", price: 98874 },
-  { id: 4, imgLink: "images/test1.png", price: 98874 },
-  // { id: 5, imgLink: "images/test1.png", price: 98874 },
-  // { id: 6, imgLink: "images/test1.png", price: 98874 },
-  // { id: 7, imgLink: "images/test1.png", price: 98874 },
-  // { id: 8, imgLink: "images/test1.png", price: 98874 },
-]);
+import { type Swiper } from "swiper";
+const swiper = ref<Swiper | undefined>(undefined);
 
-function test() {
-  // swiperRef.value.nextSlide();
-  console.dir(swiper.value);
+const { data: lastOrders } = useFetch("/api/last-order");
+
+function setSwiperInstance(swiperInstance: Swiper) {
+  swiper.value = swiperInstance;
 }
 </script>
 
 <template>
-  <div class="opener">
+  <div id="hero" class="opener">
     <div class="container opener__content">
       <div class="opener__left">
         <div class="opener_info">
@@ -30,19 +22,33 @@ function test() {
           <ButtonBase class="opener__button">Заказать подарок</ButtonBase>
         </div>
         <div class="opener__last last">
-          <p class="last__h" @click="test">Последнии Заказы</p>
+          <p class="last__h">Последнии Заказы</p>
           <Swiper
-            ref="swiper"
             class="last__orders"
             :modules="[SwiperPagination, SwiperNavigation]"
             :slides-per-view="3"
-            :height="300"
+            :height="250"
             :space-between="24"
+            @swiper="setSwiperInstance"
           >
             <SwiperSlide v-for="lastOrder in lastOrders" :key="lastOrder.id">
               <CardLastOrder :order="lastOrder" />
             </SwiperSlide>
           </Swiper>
+          <img
+            v-show="!swiper?.isBeginning"
+            class="last__pagination-arrow last__pagination-arrow_left"
+            src="/icons/hero/arr.svg"
+            alt="arrow"
+            @click="swiper?.slidePrev()"
+          />
+          <img
+            v-show="!swiper?.isEnd"
+            class="last__pagination-arrow last__pagination-arrow_right"
+            src="/icons/hero/arr.svg"
+            alt="arrow"
+            @click="swiper?.slideNext()"
+          />
         </div>
       </div>
       <div class="opener__right">
@@ -91,7 +97,24 @@ function test() {
 }
 
 .last {
-  width: 100%;
+  position: relative;
+  width: fit-content;
+
+  &__pagination-arrow {
+    cursor: pointer;
+    position: absolute;
+    top: calc(50% - 40px);
+    z-index: 100;
+
+    &_right {
+      right: -20px;
+    }
+
+    &_left {
+      left: -20px;
+      transform: rotateY(180deg);
+    }
+  }
 
   &__h {
     font-size: 24px;

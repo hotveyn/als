@@ -1,5 +1,5 @@
 <template>
-  <div class="why">
+  <div id="why-we-are" class="why">
     <div class="container why__content">
       <h2 class="why__h2 h2">Почему именно мы?</h2>
       <div class="why__whys">
@@ -89,7 +89,7 @@
   }
 }
 .card-why {
-  width: 524px;
+  width: 100%;
   height: 263px;
 
   &__img {

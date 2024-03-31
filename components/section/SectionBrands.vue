@@ -1,5 +1,5 @@
 <template>
-  <div class="brands">
+  <div id="brands" class="brands">
     <div class="container brands__content">
       <h2 class="brands__title h2">
         вы можете заказать продукцию таких брендов как
@@ -75,6 +75,7 @@
     margin-top: 30px;
     display: grid;
     grid-template-columns: repeat(8, 1fr);
+    justify-items: center;
     row-gap: 23px;
   }
 

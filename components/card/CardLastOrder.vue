@@ -5,18 +5,14 @@ defineProps<{
   order: {
     id: number;
     imgLink: string;
-    price: Number;
+    price: number;
   };
 }>();
 </script>
 
 <template>
   <div class="card-last-order">
-    <img
-      :src="`/${order.imgLink}`"
-      alt="orderLink"
-      class="card-last-order__img"
-    />
+    <img :src="order.imgLink" alt="orderLink" class="card-last-order__img" />
     <p class="card-last-order__price">
       {{ new Intl.NumberFormat("ru-RU").format(order.price) }}₽
     </p>
@@ -39,7 +35,7 @@ defineProps<{
   &__img {
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit: cover;
   }
 
   &:hover {

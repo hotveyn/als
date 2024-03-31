@@ -21,4 +21,12 @@ export default defineNuxtConfig({
     styleLang: "css",
     modules: ["navigation", "pagination"],
   },
+  nitro: {
+    database: {
+      default: {
+        connector: "sqlite",
+        options: { name: "db" },
+      },
+    },
+  },
 });

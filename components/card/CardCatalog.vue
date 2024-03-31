@@ -57,7 +57,7 @@ defineProps<{
   &__img {
     width: 250px;
     height: 238px;
-    object-fit: contain;
+    object-fit: cover;
   }
 
   &__sale {
