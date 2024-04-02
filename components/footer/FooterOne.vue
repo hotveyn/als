@@ -72,6 +72,7 @@ const { data: socials } = useFetch("/api/socials");
   &__content {
     display: flex;
     gap: 110px;
+    flex-wrap: wrap;
   }
 
   &__license {
@@ -122,6 +123,14 @@ const { data: socials } = useFetch("/api/socials");
     color: #000000cc;
     font-weight: 600;
     font-size: 20px;
+  }
+}
+@media screen and (max-width: 500px) {
+  .footer {
+    &__content {
+      max-width: 280px;
+      gap: 20px;
+    }
   }
 }
 </style>

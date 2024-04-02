@@ -88,4 +88,25 @@
     }
   }
 }
+@media screen and (max-width: 1400px) {
+  .brands {
+    &__logos {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+}
+@media screen and (max-width: 600px) {
+  .brands {
+    &__logos {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}
+@media screen and (max-width: 400px) {
+  .brands {
+    &__logos {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}
 </style>

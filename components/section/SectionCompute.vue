@@ -174,4 +174,30 @@ function selectKind(id: Kind) {
     width: 60px;
   }
 }
+@media screen and (max-width: 1000px) {
+  .compute {
+    &__products {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 10px 0;
+    }
+  }
+}
+@media screen and (max-width: 720px) {
+  .compute {
+    &__products {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px 0;
+    }
+  }
+}
+@media screen and (max-width: 400px) {
+  .compute {
+    &__products {
+      grid-template-columns: repeat(2, 1fr);
+      align-items: center;
+    }
+  }
+}
 </style>

@@ -78,6 +78,7 @@
   &__h2 {
     margin: 0 auto;
     width: fit-content;
+    text-align: center;
   }
 
   &__whys {
@@ -108,6 +109,20 @@
 
   &__p {
     margin-top: 10px;
+  }
+}
+@media screen and (max-width: 880px) {
+  .why {
+    &__whys {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+}
+@media screen and (max-width: 450px) {
+  .why {
+    &__whys {
+      grid-template-columns: 1fr;
+    }
   }
 }
 </style>

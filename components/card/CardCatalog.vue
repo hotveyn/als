@@ -104,4 +104,10 @@ defineProps<{
     font-size: 16px;
   }
 }
+@media screen and (max-width: 900px) {
+  .card-catalog__img {
+    width: 180px;
+    height: 160px;
+  }
+}
 </style>

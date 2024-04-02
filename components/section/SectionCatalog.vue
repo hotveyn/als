@@ -32,6 +32,13 @@ async function getProducts(groupId: number) {
 
   products.value = responseProduct.value;
 }
+const sliderPerView = computed<number>(() => {
+  if (window?.innerWidth > 1500) {
+    return 6;
+  } else if (window?.innerWidth > 700) {
+    return 3;
+  }
+});
 </script>
 
 <template>
@@ -55,13 +62,13 @@ async function getProducts(groupId: number) {
         <Swiper
           class="catalog__swipers"
           :modules="[SwiperPagination, SwiperNavigation]"
-          :slides-per-view="6"
+          :slides-per-view="sliderPerView"
           :height="343"
           :space-between="10"
           @swiper="setSwiperInstance"
         >
           <SwiperSlide v-for="product in products" :key="product.id">
-            <CardCatalog :product="product" />
+            <CardCatalog :product="product" class="catalog__swipers__slide" />
           </SwiperSlide>
         </Swiper>
         <img
@@ -108,6 +115,8 @@ async function getProducts(groupId: number) {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
+    gap: 20px 0;
   }
 
   &__tabs {
@@ -129,6 +138,20 @@ async function getProducts(groupId: number) {
       left: -20px;
       transform: rotateY(180deg);
     }
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .catalog {
+    &__swipers__slide {
+      width: 180px;
+      aspect-ratio: 0.73/1;
+    }
+  }
+}
+@media screen and (max-width: 700px) {
+  .catalog {
+    display: none;
   }
 }
 </style>

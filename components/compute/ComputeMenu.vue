@@ -132,4 +132,18 @@ watch(value, (old) => {
     }
   }
 }
+
+@media screen and (max-width: 720px) {
+  .compute-menu {
+    flex-wrap: wrap;
+    &__sup {
+      font-size: 16px;
+    }
+  }
+  .number-input,
+  .compute-menu__content {
+    max-width: 387px;
+    width: 95%;
+  }
+}
 </style>
