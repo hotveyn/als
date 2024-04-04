@@ -41,8 +41,8 @@ defineProps<{
   box-shadow: 0 4px 5px 0 rgba(209, 225, 214, 0.3);
   border-radius: 15px;
   overflow: hidden;
-  width: 250px;
-  height: 343px;
+  width: 180px;
+  height: 234px;
   position: relative;
   cursor: pointer;
 
@@ -55,8 +55,8 @@ defineProps<{
   }
 
   &__img {
-    width: 250px;
-    height: 238px;
+    width: 180px;
+    height: 160px;
     object-fit: cover;
   }
 

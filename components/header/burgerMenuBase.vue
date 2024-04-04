@@ -1,10 +1,10 @@
 <script setup lang="ts">
 const props = defineProps<{
   clickFunction: () => void;
+  isActive: boolean;
 }>();
-const isActive = ref<boolean>(false);
+const { isActive } = toRefs(props);
 const clickButton = () => {
-  isActive.value = !isActive.value;
   props.clickFunction();
 };
 </script>

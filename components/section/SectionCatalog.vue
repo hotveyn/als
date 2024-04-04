@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { type Swiper } from "swiper";
 import type { IProduct } from "~/server/api/product/[groupId].get";
+import { useWindowSize } from "@vueuse/core";
 
 function setSwiperInstance(swiperInstance: Swiper) {
   swiper.value = swiperInstance;
@@ -32,11 +33,16 @@ async function getProducts(groupId: number) {
 
   products.value = responseProduct.value;
 }
-const sliderPerView = computed<number>(() => {
-  if (window?.innerWidth > 1500) {
+const userView = useWindowSize();
+const sliderPerView = computed<number | undefined>(() => {
+  if (userView.width.value > 1300) {
     return 6;
-  } else if (window?.innerWidth > 700) {
+  } else if (userView.width.value > 880) {
+    return 4;
+  } else if (userView.width.value > 600) {
     return 3;
+  } else {
+    return undefined;
   }
 });
 </script>

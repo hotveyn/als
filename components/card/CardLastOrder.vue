@@ -22,11 +22,11 @@ defineProps<{
 <style scoped lang="scss">
 .card-last-order {
   cursor: pointer;
-  width: 250px;
+  width: 170px;
+  aspect-ratio: 1;
   border-radius: 15px;
   border: 3px solid rgba(199, 199, 199, 0.3);
   box-shadow: 0 4px 4px 0 rgba(209, 225, 214, 0.3);
-  aspect-ratio: 1;
   overflow: hidden;
   position: relative;
 

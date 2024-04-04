@@ -20,33 +20,35 @@ watch(value, (old) => {
 
 <template>
   <div class="compute-menu">
-    <div class="compute-menu__content">
-      <div class="compute-menu__info">
-        <p class="p">Вес посылки в кг.</p>
-        <p class="p compute-menu__kolvo">{{ kind.text }}: {{ value }}</p>
+    <div class="compute-menu__content-wrapper">
+      <div class="compute-menu__content">
+        <div class="compute-menu__info">
+          <p class="p">Вес посылки в кг.</p>
+          <p class="p compute-menu__kolvo">{{ kind.text }}: {{ value }}</p>
+        </div>
+        <div class="compute-menu__input number-input">
+          <p disabled class="number-input__input">
+            {{ Math.round(value * kind.mass) }}
+          </p>
+          <img
+            class="number-input__icon"
+            src="/icons/plus.svg"
+            alt="plus"
+            @click="() => value++"
+          />
+          <img
+            class="number-input__icon"
+            src="/icons/minus.svg"
+            alt="plus"
+            @click="() => value--"
+          />
+        </div>
       </div>
-      <div class="compute-menu__input number-input">
-        <p disabled class="number-input__input">
-          {{ Math.round(value * kind.mass) }}
-        </p>
-        <img
-          class="number-input__icon"
-          src="/icons/plus.svg"
-          alt="plus"
-          @click="() => value++"
-        />
-        <img
-          class="number-input__icon"
-          src="/icons/minus.svg"
-          alt="plus"
-          @click="() => value--"
-        />
-      </div>
-    </div>
-    <div class="compute-menu__delivery">
-      <p class="p">Доставка</p>
-      <div class="compute-menu__delivery-price">
-        {{ Math.round(value * kind.mass * kind.oneKgEqual) }}₽
+      <div class="compute-menu__delivery">
+        <p class="p">Доставка</p>
+        <div class="compute-menu__delivery-price">
+          {{ Math.round(value * kind.mass * kind.oneKgEqual) }}₽
+        </div>
       </div>
     </div>
     <p class="p compute-menu__sup">
@@ -69,6 +71,12 @@ watch(value, (old) => {
     display: grid;
     grid-template-columns: 1fr;
     gap: 5px;
+    &-wrapper {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      width: 100%;
+      gap: 0 20px;
+    }
   }
 
   &__delivery {
@@ -136,14 +144,19 @@ watch(value, (old) => {
 @media screen and (max-width: 720px) {
   .compute-menu {
     flex-wrap: wrap;
+    justify-content: center;
     &__sup {
       font-size: 16px;
+      text-align: center;
     }
   }
   .number-input,
   .compute-menu__content {
     max-width: 387px;
-    width: 95%;
+    width: 100%;
+  }
+  .number-input {
+    grid-template-columns: 80% 14px 14px;
   }
 }
 </style>

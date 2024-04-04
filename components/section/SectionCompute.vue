@@ -132,7 +132,6 @@ function selectKind(id: Kind) {
   &__products {
     margin-top: 30px;
     display: flex;
-    justify-content: space-between;
   }
 }
 
@@ -180,6 +179,8 @@ function selectKind(id: Kind) {
       display: grid;
       grid-template-columns: repeat(6, 1fr);
       gap: 10px 0;
+      align-items: center;
+      justify-items: center;
     }
   }
 }
@@ -196,7 +197,6 @@ function selectKind(id: Kind) {
   .compute {
     &__products {
       grid-template-columns: repeat(2, 1fr);
-      align-items: center;
     }
   }
 }

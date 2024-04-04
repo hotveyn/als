@@ -1,14 +1,17 @@
 <script setup lang="ts">
 import BurgerMenuBase from "~/components/header/burgerMenuBase.vue";
+import { useWindowSize } from "@vueuse/core";
 const isActive = ref<boolean>(false);
 const burgerButton = () => {
   isActive.value = !isActive.value;
+  document.body.style.overflowY = isActive.value ? "hidden" : "auto";
 };
+const userView = useWindowSize();
 </script>
 
 <template>
-  <header class="header container">
-    <div class="header__content">
+  <header class="header">
+    <div class="header__content container">
       <div :class="{ hidden__logo: isActive }" class="logo">
         <img src="/images/baselogo.svg" alt="logo" />
       </div>
@@ -23,7 +26,11 @@ const burgerButton = () => {
               <a class="nav__link" href="#brands">Бренды</a>
             </li>
             <li class="nav__el">
-              <a class="nav__link" href="#catalog">Товары</a>
+              <a
+                class="nav__link"
+                :href="userView.width.value > 700 ? '#catalog' : '#hero'"
+                >Товары</a
+              >
             </li>
             <li class="nav__el">
               <a class="nav__link" href="#why-we-are">Преимущества</a>
@@ -37,30 +44,53 @@ const burgerButton = () => {
         :class="{ 'header__mobile-one-active': isActive }"
       >
         <div class="header__mobile-one" :class="{ 'active-one': isActive }">
-          <nav class="header__nav nav">
-            <ul class="nav__list">
-              <li class="nav__el">
-                <a class="nav__link" href="#hero">Главная</a>
-              </li>
-              <li class="nav__el">
-                <a class="nav__link" href="#hero">Акции</a>
-              </li>
-              <li class="nav__el">
-                <a class="nav__link" href="#brands">Бренды</a>
-              </li>
-              <li class="nav__el">
-                <a class="nav__link" href="#catalog">Товары</a>
-              </li>
-              <li class="nav__el">
-                <a class="nav__link" href="#why-we-are">Преимущества</a>
-              </li>
-            </ul>
-          </nav>
-          <ButtonSecond class="header__mobile-button"
-            >Сделать заказ</ButtonSecond
-          >
+          <teleport to="body">
+            <Transition>
+              <div v-if="isActive" class="header__mobile-one__content">
+                <nav class="header__nav nav">
+                  <ul class="nav__list">
+                    <li class="nav__el">
+                      <a class="nav__link" href="#hero" @click="burgerButton"
+                        >Главная</a
+                      >
+                    </li>
+                    <li class="nav__el">
+                      <a class="nav__link" href="#hero" @click="burgerButton"
+                        >Акции</a
+                      >
+                    </li>
+                    <li class="nav__el">
+                      <a class="nav__link" href="#brands" @click="burgerButton"
+                        >Бренды</a
+                      >
+                    </li>
+                    <li class="nav__el">
+                      <a class="nav__link" href="#catalog" @click="burgerButton"
+                        >Товары</a
+                      >
+                    </li>
+                    <li class="nav__el">
+                      <a
+                        class="nav__link"
+                        href="#why-we-are"
+                        @click="burgerButton"
+                        >Преимущества</a
+                      >
+                    </li>
+                  </ul>
+                </nav>
+                <ButtonSecond class="header__mobile-button"
+                  >Сделать заказ</ButtonSecond
+                >
+              </div>
+            </Transition>
+          </teleport>
         </div>
-        <burger-menu-base :click-function="burgerButton" class="burger-menu" />
+        <burger-menu-base
+          :click-function="burgerButton"
+          class="burger-menu"
+          :is-active="isActive"
+        />
       </div>
     </div>
   </header>
@@ -77,9 +107,8 @@ const burgerButton = () => {
   background-color: white;
 
   &__content {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 7fr;
     align-items: center;
   }
   &__desktop {
@@ -110,6 +139,9 @@ const burgerButton = () => {
 @media screen and (max-width: 1000px) {
   .header {
     height: 110px;
+    &__content {
+      grid-template-columns: 1fr;
+    }
     &__desktop {
       display: none;
     }
@@ -121,21 +153,30 @@ const burgerButton = () => {
       height: 65px;
       &-button {
         padding: 10px 20px;
+        font-size: 18px;
       }
       &-one {
-        padding-left: 20px;
-        position: relative;
-        z-index: 10;
-        transform: translateY(-110px);
+        opacity: 0;
         transition: all 0.5s linear;
         display: grid;
-        grid-template-columns: 2.7fr 1fr;
+        grid-template-columns: 3fr 1fr;
         align-items: center;
+        &__content {
+          position: absolute;
+          z-index: 100;
+          left: 0;
+          top: 0;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          height: 110px;
+          width: 90%;
+        }
       }
     }
   }
   .active-one {
-    transform: translateY(0px);
+    opacity: 1;
   }
   .logo {
     position: absolute;
@@ -153,18 +194,31 @@ const burgerButton = () => {
   .header {
     &__mobile {
       &-one {
-        grid-template-columns: 1fr;
+        display: none;
+        flex-direction: column;
         margin: 0 auto;
         gap: 40px 0;
         background: white;
-        width: 100%;
+        width: calc(100vw + 5px);
         align-items: center;
-        justify-items: center;
+        justify-content: center;
         padding: 0;
-        transform: translateY(-189px);
-        .nav__list {
-          align-items: center;
+        top: 0;
+        left: -5px;
+        height: 100vh;
+        position: fixed;
+        opacity: 0;
+        &__content {
           flex-direction: column;
+          height: fit-content;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          gap: 20px;
+          .nav__list {
+            align-items: center;
+            flex-direction: column;
+          }
         }
       }
       &-button {
@@ -175,11 +229,12 @@ const burgerButton = () => {
   .burger-menu {
     position: absolute;
     right: 0;
-    z-index: 200;
+    z-index: 1001;
   }
   .active-one {
-    transform: translateY(189px);
-    z-index: 100;
+    display: flex;
+    opacity: 1;
+    z-index: 1000;
   }
 }
 </style>

@@ -20,7 +20,9 @@
     display: grid;
     grid-template-columns: 1fr;
     margin: 0 auto;
-    gap: 130px;
+    align-items: center;
+    justify-items: center;
+    gap: adpval(80, 130);
   }
 }
 </style>

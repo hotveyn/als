@@ -122,7 +122,7 @@ const { data: socials } = useFetch("/api/socials");
   &__link {
     color: #000000cc;
     font-weight: 600;
-    font-size: 20px;
+    font-size: adpval(16, 20);
   }
 }
 @media screen and (max-width: 500px) {

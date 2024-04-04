@@ -99,7 +99,7 @@ const sliderPerView = computed<number>(() => {
     bottom: 100px;
   }
   &__img {
-    max-width: 605px;
+    max-width: adpval(300, 605);
   }
 }
 
@@ -170,7 +170,7 @@ const sliderPerView = computed<number>(() => {
     }
     &__img {
       position: relative;
-      bottom: 100px;
+      bottom: adpval(30, 100);
       z-index: -1;
     }
   }
@@ -202,6 +202,7 @@ const sliderPerView = computed<number>(() => {
       line-height: 40px;
     }
     &__left {
+      justify-items: center;
       gap: 20px;
     }
     &__right {
@@ -209,9 +210,6 @@ const sliderPerView = computed<number>(() => {
     }
     &__card {
       width: 280px;
-    }
-    &__img {
-      display: none;
     }
   }
 }
