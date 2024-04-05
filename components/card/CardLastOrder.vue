@@ -22,7 +22,6 @@ defineProps<{
 <style scoped lang="scss">
 .card-last-order {
   cursor: pointer;
-  width: 170px;
   aspect-ratio: 1;
   border-radius: 15px;
   border: 3px solid rgba(199, 199, 199, 0.3);
