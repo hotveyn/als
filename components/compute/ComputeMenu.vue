@@ -5,8 +5,6 @@ defineProps<{
   kind: Kind;
 }>();
 
-const numberInput = ref<HTMLInputElement | null>(null);
-
 const value = ref(1);
 
 watch(value, (old) => {

@@ -1,5 +1,6 @@
 <script setup lang="ts">
 const { data: euro } = useFetch("/api/euro");
+console.log(euro.value);
 const { data: socials } = useFetch("/api/socials");
 </script>
 
@@ -9,7 +10,12 @@ const { data: socials } = useFetch("/api/socials");
       <div class="footer__first">
         <img src="/images/baselogo.svg" alt="logo" />
         <p class="footer__curse">
-          1€ = {{ new Intl.NumberFormat("ru-Ru").format(euro || 0) }}₽
+          1€ =
+          {{
+            new Intl.NumberFormat("ru-Ru").format(
+              Number(euro && euro.value) || 0,
+            )
+          }}₽
         </p>
         <p class="footer__license">2024@ALS</p>
       </div>
@@ -37,21 +43,31 @@ const { data: socials } = useFetch("/api/socials");
         <nav class="footer__nav ft-nav">
           <ul class="ft-nav__list">
             <li class="ft-nav__el">
-              <a href="mail:example@mail.com" class="ft-nav__link"
-                >Почта: {{ socials!.email }}</a
+              <a
+                :href="`mail:${(socials && socials.email && socials.email.value) || ''}`"
+                class="ft-nav__link"
+                >Почта: {{ socials && socials.email && socials.email.value }}</a
               >
             </li>
             <li class="ft-nav__el">
-              <a :href="`tel:${socials?.phone}`" class="ft-nav__link"
-                >Телефон: {{ socials?.phone }}</a
+              <a
+                :href="`tel:${socials && socials.phone && socials.phone.value}`"
+                class="ft-nav__link"
+                >Телефон:
+                {{ socials && socials.phone && socials.phone.value }}</a
               >
             </li>
             <li class="ft-nav__el">
               <div class="footer__socials">
-                <a :href="socials?.vk">
+                <a :href="(socials && socials.vk && socials.vk.value) || ''">
                   <img src="/icons/social/vk.svg" alt="vk" />
                 </a>
-                <a :href="socials?.telegram">
+                <a
+                  :href="
+                    (socials && socials.telegram && socials.telegram.value) ||
+                    ''
+                  "
+                >
                   <img src="/icons/social/telegram.svg" alt="telegran" />
                 </a>
               </div>

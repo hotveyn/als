@@ -2,9 +2,11 @@
 
 <template>
   <div class="index">
+    <SectionActions />
     <div class="index__sections">
       <SectionHero />
       <SectionBrands />
+      <SectionHow />
       <SectionWhy />
       <SectionCatalog />
       <SectionCompute />

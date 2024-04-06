@@ -10,8 +10,12 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@prisma/client": "^5.12.1",
+    "@vinejs/vine": "^2.0.0",
     "nuxt": "^3.11.1",
     "nuxt-swiper": "^1.2.2",
+    "prisma": "^5.12.1",
+    "ts-node": "^10.9.2",
     "vue": "^3.4.21",
     "vue-router": "^4.3.0"
   },

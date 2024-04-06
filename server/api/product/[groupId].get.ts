@@ -1,89 +1,94 @@
 import { faker } from "@faker-js/faker";
+import { Product } from "@prisma/client";
+import { prisma } from "~/server/plugins/prisma.plugin";
 
-export interface IProduct {
-  id: number;
-  imgLink: string;
-  name: string;
-  price: number;
-  salePrice: number;
-  sale: number;
-}
+export default defineEventHandler(async (e): Promise<Product[]> => {
+  const groupId = Number(getRouterParam(e, "groupId"));
 
-export default defineEventHandler(async (e): Promise<IProduct[]> => {
-  const groupId = getRouterParam(e, "groupId");
+  if (!groupId)
+    throw createError({
+      statusCode: 400,
+      statusMessage: "Invalid groupId param",
+    });
 
-  return [
-    {
-      id: faker.number.int(),
-      imgLink: faker.image.url(),
-      name: faker.lorem.word(),
-      price: faker.number.int({ max: 50000 }),
-      salePrice: faker.number.int({ max: 50000 }),
-      sale: faker.number.int({ max: 100, min: 0 }),
+  return await prisma?.product.findMany({
+    where: {
+      groupId,
     },
-    {
-      id: faker.number.int(),
-      imgLink: faker.image.url(),
-      name: faker.lorem.word(),
-      price: faker.number.int({ max: 50000 }),
-      salePrice: faker.number.int({ max: 50000 }),
-      sale: faker.number.int({ max: 100, min: 0 }),
-    },
-    {
-      id: faker.number.int(),
-      imgLink: faker.image.url(),
-      name: faker.lorem.word(),
-      price: faker.number.int({ max: 50000 }),
-      salePrice: faker.number.int({ max: 50000 }),
-      sale: faker.number.int({ max: 100, min: 0 }),
-    },
-    {
-      id: faker.number.int(),
-      imgLink: faker.image.url(),
-      name: faker.lorem.word(),
-      price: faker.number.int({ max: 50000 }),
-      salePrice: faker.number.int({ max: 50000 }),
-      sale: faker.number.int({ max: 100, min: 0 }),
-    },
-    {
-      id: faker.number.int(),
-      imgLink: faker.image.url(),
-      name: faker.lorem.word(),
-      price: faker.number.int({ max: 50000 }),
-      salePrice: faker.number.int({ max: 50000 }),
-      sale: faker.number.int({ max: 100, min: 0 }),
-    },
-    {
-      id: faker.number.int(),
-      imgLink: faker.image.url(),
-      name: faker.lorem.word(),
-      price: faker.number.int({ max: 50000 }),
-      salePrice: faker.number.int({ max: 50000 }),
-      sale: faker.number.int({ max: 100, min: 0 }),
-    },
-    {
-      id: faker.number.int(),
-      imgLink: faker.image.url(),
-      name: faker.lorem.word(),
-      price: faker.number.int({ max: 50000 }),
-      salePrice: faker.number.int({ max: 50000 }),
-      sale: faker.number.int({ max: 100, min: 0 }),
-    },
-    {
-      id: faker.number.int(),
-      imgLink: faker.image.url(),
-      name: faker.lorem.word(),
-      price: faker.number.int({ max: 50000 }),
-      salePrice: faker.number.int({ max: 50000 }),
-      sale: faker.number.int({ max: 100, min: 0 }),
-    },
-    {
-      id: faker.number.int(),
-      imgLink: faker.image.url(),
-      name: faker.lorem.word(),
-      price: faker.number.int({ max: 50000 }),
-      salePrice: faker.number.int({ max: 50000 }),
-      sale: faker.number.int({ max: 100, min: 0 }),
-    },
-  ];
+  });
+
+  // return [
+  //   {
+  // id: faker.number.int(),
+  // imgLink: faker.image.url(),
+  // name: faker.lorem.word(),
+  // price: faker.number.int({ max: 50000 }),
+  // salePrice: faker.number.int({ max: 50000 }),
+  // sale: faker.number.int({ max: 100, min: 0 }),
+  //   },
+  //   {
+  //     id: faker.number.int(),
+  //     imgLink: faker.image.url(),
+  //     name: faker.lorem.word(),
+  //     price: faker.number.int({ max: 50000 }),
+  //     salePrice: faker.number.int({ max: 50000 }),
+  //     sale: faker.number.int({ max: 100, min: 0 }),
+  //   },
+  //   {
+  //     id: faker.number.int(),
+  //     imgLink: faker.image.url(),
+  //     name: faker.lorem.word(),
+  //     price: faker.number.int({ max: 50000 }),
+  //     salePrice: faker.number.int({ max: 50000 }),
+  //     sale: faker.number.int({ max: 100, min: 0 }),
+  //   },
+  //   {
+  //     id: faker.number.int(),
+  //     imgLink: faker.image.url(),
+  //     name: faker.lorem.word(),
+  //     price: faker.number.int({ max: 50000 }),
+  //     salePrice: faker.number.int({ max: 50000 }),
+  //     sale: faker.number.int({ max: 100, min: 0 }),
+  //   },
+  //   {
+  //     id: faker.number.int(),
+  //     imgLink: faker.image.url(),
+  //     name: faker.lorem.word(),
+  //     price: faker.number.int({ max: 50000 }),
+  //     salePrice: faker.number.int({ max: 50000 }),
+  //     sale: faker.number.int({ max: 100, min: 0 }),
+  //   },
+  //   {
+  //     id: faker.number.int(),
+  //     imgLink: faker.image.url(),
+  //     name: faker.lorem.word(),
+  //     price: faker.number.int({ max: 50000 }),
+  //     salePrice: faker.number.int({ max: 50000 }),
+  //     sale: faker.number.int({ max: 100, min: 0 }),
+  //   },
+  //   {
+  //     id: faker.number.int(),
+  //     imgLink: faker.image.url(),
+  //     name: faker.lorem.word(),
+  //     price: faker.number.int({ max: 50000 }),
+  //     salePrice: faker.number.int({ max: 50000 }),
+  //     sale: faker.number.int({ max: 100, min: 0 }),
+  //   },
+  //   {
+  //     id: faker.number.int(),
+  //     imgLink: faker.image.url(),
+  //     name: faker.lorem.word(),
+  //     price: faker.number.int({ max: 50000 }),
+  //     salePrice: faker.number.int({ max: 50000 }),
+  //     sale: faker.number.int({ max: 100, min: 0 }),
+  //   },
+  //   {
+  //     id: faker.number.int(),
+  //     imgLink: faker.image.url(),
+  //     name: faker.lorem.word(),
+  //     price: faker.number.int({ max: 50000 }),
+  //     salePrice: faker.number.int({ max: 50000 }),
+  //     sale: faker.number.int({ max: 100, min: 0 }),
+  //   },
+  // ];
 });

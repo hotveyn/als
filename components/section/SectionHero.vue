@@ -148,7 +148,11 @@ const slideWidth = computed<number>(() => {
     text-align: center;
   }
 }
-
+@media screen and (max-width: 1565px) {
+  .last {
+    bottom: unset;
+  }
+}
 @media screen and (min-width: 1240px) {
   .opener {
     &__button {
@@ -181,7 +185,10 @@ const slideWidth = computed<number>(() => {
   }
 }
 
-@media screen and (max-width: 670px) {
+@media screen and (max-width: 700px) {
+  .opener {
+    margin-top: 120px;
+  }
 }
 @media screen and (max-width: 550px) {
   .opener {

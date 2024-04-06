@@ -1,0 +1,49 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model LastOrder {
+  id      Int    @id @default(autoincrement())
+  imgLink String @map("img_link")
+  price   Float
+
+  @@map("last_orders")
+}
+
+model Product {
+  id        Int    @id @default(autoincrement())
+  imgLink   String @map("img_link")
+  name      String
+  price     Float
+  salePrice Float  @map("sale_price")
+  sale      Float
+  groupId   Int
+
+  group Group @relation(fields: [groupId], references: [id], onDelete: Restrict)
+
+  @@map("products")
+}
+
+model Group {
+  id   Int    @id @default(autoincrement())
+  name String
+
+  products Product[]
+
+  @@map("groups")
+}
+
+model Param {
+  type  String @id
+  value String
+
+  @@map("params")
+}

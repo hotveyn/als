@@ -123,6 +123,7 @@ const userView = useWindowSize();
 }
 
 .nav {
+  margin-left: 10px;
   &__list {
     display: flex;
     gap: 25px;
@@ -157,7 +158,7 @@ const userView = useWindowSize();
       }
       &-one {
         opacity: 0;
-        transition: all 0.5s linear;
+        transition: all 0.2s linear;
         display: grid;
         grid-template-columns: 3fr 1fr;
         align-items: center;
@@ -180,7 +181,7 @@ const userView = useWindowSize();
   }
   .logo {
     position: absolute;
-    transition: 0.5s linear;
+    transition: 0.2s linear;
   }
   .hidden__logo {
     opacity: 0;

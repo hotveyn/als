@@ -1,9 +1,15 @@
 <template>
   <div class="layout-default">
     <HeaderOne />
-    <div class="content">
+    <main class="content">
       <slot />
-    </div>
+    </main>
     <FooterOne />
   </div>
 </template>
+
+<style scoped>
+main {
+  position: relative;
+}
+</style>
