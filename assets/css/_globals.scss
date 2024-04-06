@@ -3,6 +3,12 @@
   scroll-behavior: smooth;
 }
 
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
 .container {
   width: adpval(320, 1620);
   padding: 0 5px;
@@ -18,8 +24,8 @@
 .h1 {
   font-size: adpval(32, 60);
   font-style: normal;
-  font-weight: 900;
-  line-height: 73.14px;
+  font-weight: 600;
+  line-height: adpval(39, 73);
   text-transform: uppercase;
 }
 
@@ -41,10 +47,10 @@
 .p {
   color: $grey;
   font-weight: 500;
-  font-size: adpval(12, 20);
+  font-size: adpval(16, 20);
 }
 
 
-:root{
+:root {
   --swiper-pagination-color: #D2B48CFF;
 }

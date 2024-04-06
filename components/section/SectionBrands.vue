@@ -1,9 +1,10 @@
 <template>
   <div id="brands" class="brands">
     <div class="container brands__content">
-      <h2 class="brands__title h2">
+      <h2 class="brands__title brands__title_desktop h2">
         вы можете заказать продукцию таких брендов как
       </h2>
+      <h2 class="brands__title brands__title_mobile h2">бренды</h2>
       <div class="brands__logos">
         <img
           class="brands__logo"
@@ -76,10 +77,11 @@
     display: grid;
     grid-template-columns: repeat(8, 1fr);
     justify-items: center;
-    row-gap: 23px;
+    gap: 23px;
   }
 
   &__logo {
+    width: adpval(100, 113);
     opacity: 0.6;
     transition: opacity 0.2s;
 
@@ -88,13 +90,31 @@
     }
   }
 }
+
+@media screen and (min-width: 1401px) {
+  .brands {
+    &__title_mobile {
+      display: none;
+    }
+  }
+}
+
 @media screen and (max-width: 1400px) {
   .brands {
     &__logos {
       grid-template-columns: repeat(4, 1fr);
     }
+
+    &__title_mobile {
+      display: block;
+    }
+
+    &__title_desktop {
+      display: none;
+    }
   }
 }
+
 @media screen and (max-width: 600px) {
   .brands {
     &__logos {
@@ -102,6 +122,7 @@
     }
   }
 }
+
 @media screen and (max-width: 400px) {
   .brands {
     &__logos {

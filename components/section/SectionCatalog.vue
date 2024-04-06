@@ -34,13 +34,15 @@ async function getProducts(groupId: number) {
   products.value = responseProduct.value;
 }
 const userView = useWindowSize();
-const sliderPerView = computed<number | undefined>(() => {
-  if (userView.width.value > 1300) {
-    return 6;
-  } else if (userView.width.value > 880) {
-    return 4;
-  } else if (userView.width.value > 600) {
-    return 3;
+const sliderWidth = computed<number | undefined | string>(() => {
+  if (userView.width.value > 1670) {
+    return "16.1";
+  } else if (userView.width.value > 1450) {
+    return "19.4";
+  } else if (userView.width.value > 1000) {
+    return "24.5";
+  } else if (userView.width.value > 800) {
+    return "32.3";
   } else {
     return undefined;
   }
@@ -68,12 +70,16 @@ const sliderPerView = computed<number | undefined>(() => {
         <Swiper
           class="catalog__swipers"
           :modules="[SwiperPagination, SwiperNavigation]"
-          :slides-per-view="sliderPerView"
+          :slides-per-view="'auto'"
           :height="343"
           :space-between="10"
           @swiper="setSwiperInstance"
         >
-          <SwiperSlide v-for="product in products" :key="product.id">
+          <SwiperSlide
+            v-for="product in products"
+            :key="product.id"
+            :style="{ width: `${sliderWidth}%` }"
+          >
             <CardCatalog :product="product" class="catalog__swipers__slide" />
           </SwiperSlide>
         </Swiper>
@@ -147,15 +153,7 @@ const sliderPerView = computed<number | undefined>(() => {
   }
 }
 
-@media screen and (max-width: 900px) {
-  .catalog {
-    &__swipers__slide {
-      width: 180px;
-      aspect-ratio: 0.73/1;
-    }
-  }
-}
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 800px) {
   .catalog {
     display: none;
   }

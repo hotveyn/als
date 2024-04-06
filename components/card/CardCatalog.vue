@@ -41,8 +41,8 @@ defineProps<{
   box-shadow: 0 4px 5px 0 rgba(209, 225, 214, 0.3);
   border-radius: 15px;
   overflow: hidden;
-  width: 180px;
-  height: 234px;
+  width: 100%;
+  max-width: 250px;
   position: relative;
   cursor: pointer;
 
@@ -51,12 +51,12 @@ defineProps<{
   }
 
   &__text {
-    padding: 0 10px 0 10px;
+    padding: 10px 10px 20px 10px;
   }
 
   &__img {
-    width: 180px;
-    height: 160px;
+    width: 250px;
+    aspect-ratio: 250 / 238;
     object-fit: cover;
   }
 
@@ -76,7 +76,6 @@ defineProps<{
   }
 
   &__name {
-    margin-top: 10px;
     text-transform: uppercase;
     font-weight: 600;
     font-size: 18px;
@@ -104,10 +103,10 @@ defineProps<{
     font-size: 16px;
   }
 }
-@media screen and (max-width: 900px) {
-  .card-catalog__img {
-    width: 180px;
-    height: 160px;
-  }
-}
+// @media screen and (max-width: 900px) {
+//   .card-catalog__img {
+//     width: 180px;
+//     height: 160px;
+//   }
+// }
 </style>

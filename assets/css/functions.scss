@@ -1,4 +1,4 @@
-@function adpval($min, $max, $max-wrapper-size: 1620, $min-wrapper-size: 320) {
+@function adpval($min, $max, $max-wrapper-size: 1620, $min-wrapper-size: 400) {
   @return max(
     min(
       calc(

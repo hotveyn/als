@@ -20,7 +20,7 @@ watch(value, (old) => {
 
 <template>
   <div class="compute-menu">
-    <div class="compute-menu__content-wrapper">
+    <div class="compute-menu__wrap">
       <div class="compute-menu__content">
         <div class="compute-menu__info">
           <p class="p">Вес посылки в кг.</p>
@@ -66,17 +66,19 @@ watch(value, (old) => {
     width: 384px;
   }
 
+  &__wrap {
+    width: 100%;
+    max-width: 550px;
+    display: grid;
+    grid-template-columns: 75% 20%;
+    gap: 24px;
+  }
+
   &__content {
-    width: 387px;
+    width: 100%;
     display: grid;
     grid-template-columns: 1fr;
     gap: 5px;
-    &-wrapper {
-      display: grid;
-      grid-template-columns: 2fr 1fr;
-      width: 100%;
-      gap: 0 20px;
-    }
   }
 
   &__delivery {
@@ -96,6 +98,7 @@ watch(value, (old) => {
     color: black;
     text-align: center;
     min-width: 98px;
+    width: fit-content;
     gap: 10px;
   }
 
@@ -109,9 +112,14 @@ watch(value, (old) => {
     font-size: 16px;
   }
 }
+@media screen and (max-width: 1050px) {
+  .compute-menu {
+    flex-wrap: wrap;
+  }
+}
 
 .number-input {
-  width: 387px;
+  width: 100%;
   padding: 21px 20px;
   box-shadow: 0 4px 4px 0 #d1e1d64d;
   border: 2px solid #c7c7c780;
@@ -142,19 +150,11 @@ watch(value, (old) => {
 }
 
 @media screen and (max-width: 720px) {
-  .compute-menu {
-    flex-wrap: wrap;
-    justify-content: center;
-    &__sup {
-      font-size: 16px;
-      text-align: center;
-    }
-  }
   .number-input,
   .compute-menu__content {
     max-width: 387px;
-    width: 100%;
   }
+
   .number-input {
     grid-template-columns: 80% 14px 14px;
   }

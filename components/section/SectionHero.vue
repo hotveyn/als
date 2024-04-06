@@ -23,10 +23,12 @@ const slideWidth = computed<number>(() => {
     <div class="container opener__content">
       <div class="opener__left">
         <div class="opener_info">
-          <h1 class="opener__title h1">Импортные товары c Европы за неделю</h1>
+          <h1 class="opener__title h1">
+            Европейские бренды с доставкой на дом
+          </h1>
           <p class="opener__description">
-            Порадуй себя, близких или друзей подарками на новый год или просто
-            так без повода
+            Порадуй себя и близких подарками из лучших магазинов Европы вместе с
+            нами.
           </p>
           <!-- opener__button-desktop -->
           <ButtonBase class="opener__button">Заказать подарок</ButtonBase>
@@ -174,35 +176,18 @@ const slideWidth = computed<number>(() => {
     }
 
     &__img {
-      right: -50px;
+      right: 50px;
     }
   }
 }
 
-@media screen and (max-width: 900px) {
-}
-
 @media screen and (max-width: 670px) {
-  // .last {
-  //   bottom: 0;
-  //   &__orders {
-  //     max-width: 280px;
-  //   }
-  // }
-  // .opener {
-  // &__title {
-  //   line-height: 40px;
-  // }
-  // &__left {
-  //   justify-items: center;
-  //   gap: 20px;
-  // }
-  // &__right {
-  //   align-items: center;
-  // }
-  // &__card {
-  //   width: 280px;
-  // }
-  // }
+}
+@media screen and (max-width: 550px) {
+  .opener {
+    &__img {
+      left: -20%;
+    }
+  }
 }
 </style>
