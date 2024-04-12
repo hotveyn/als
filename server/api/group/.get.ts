@@ -1,5 +1,5 @@
 import { Group } from "@prisma/client";
-import { prisma } from "../plugins/prisma.plugin";
+import { prisma } from "../../plugins/prisma.plugin";
 
 export interface ProductGroup {
   id: number;
