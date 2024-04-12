@@ -1,7 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
-  modules: ["@nuxtjs/eslint-module", "@nuxtjs/google-fonts", "nuxt-swiper"],
+  modules: ["@nuxtjs/eslint-module", "@nuxtjs/google-fonts", "nuxt-swiper", "@nuxt/ui"],
   vite: {
     css: {
       preprocessorOptions: {

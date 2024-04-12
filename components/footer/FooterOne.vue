@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const { data: euro } = useFetch("/api/euro");
+const { data: euro } = useFetch("/api/euro/");
 console.log(euro.value);
 const { data: socials } = useFetch("/api/socials");
 </script>

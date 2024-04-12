@@ -13,6 +13,8 @@ datasource db {
 model LastOrder {
   id      Int    @id @default(autoincrement())
   imgLink String @map("img_link")
+  name    String 
+  vkLink  String @map("vk_link")
   price   Float
 
   @@map("last_orders")
@@ -21,6 +23,7 @@ model LastOrder {
 model Product {
   id        Int    @id @default(autoincrement())
   imgLink   String @map("img_link")
+  vkLink    String @map("vk_link")
   name      String
   price     Float
   salePrice Float  @map("sale_price")
@@ -46,4 +49,10 @@ model Param {
   value String
 
   @@map("params")
+}
+
+model Token {
+  token String @id
+
+  @@map("tokens")
 }

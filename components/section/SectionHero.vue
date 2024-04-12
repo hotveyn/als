@@ -2,7 +2,7 @@
 import { type Swiper } from "swiper";
 const swiper = ref<Swiper | undefined>(undefined);
 
-const { data: lastOrders } = useFetch("/api/last-order");
+const { data: lastOrders } = useFetch("/api/last-orders");
 
 function setSwiperInstance(swiperInstance: Swiper) {
   swiper.value = swiperInstance;

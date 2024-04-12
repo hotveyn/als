@@ -1,4 +1,4 @@
-import {  PrismaClient } from "@prisma/client";
+import { PrismaClient } from "@prisma/client";
 
 export let prisma: PrismaClient;
 
@@ -19,7 +19,7 @@ async function initParams() {
       },
     });
   } catch (e) {
-    console.log("euro");
+    // console.log("euro");
   }
   try {
     await prisma.param.create({
@@ -29,7 +29,7 @@ async function initParams() {
       },
     });
   } catch (e) {
-    console.log("email");
+    // console.log("email");
   }
   try {
     await prisma.param.create({
@@ -39,7 +39,7 @@ async function initParams() {
       },
     });
   } catch (e) {
-    console.log("phone");
+    // console.log("phone");
   }
   try {
     await prisma.param.create({
@@ -49,7 +49,7 @@ async function initParams() {
       },
     });
   } catch (e) {
-    console.log("vk");
+    // console.log("vk");
   }
   try {
     await prisma.param.create({
@@ -59,6 +59,6 @@ async function initParams() {
       },
     });
   } catch (e) {
-    console.log("telegram");
+    // console.log("telegram");
   }
 }
