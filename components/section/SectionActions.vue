@@ -1,13 +1,17 @@
 <script setup lang="ts">
+import type { ActionWithConditions } from "../action/ActionOne.vue";
+
 const { data: actions } = useFetch("/api/action");
 const isModalShow = ref<boolean>(false);
+const chosenAction = ref<ActionWithConditions>();
 
 function hideModal() {
   isModalShow.value = false;
 }
 
-function showModal() {
+function showModal(action: ActionWithConditions) {
   isModalShow.value = true;
+  chosenAction.value = action;
 }
 </script>
 
@@ -19,7 +23,7 @@ function showModal() {
           v-for="(action, index) in actions"
           :key="action.id"
           class="actions__action action"
-          @click="showModal"
+          @click="showModal(action as unknown as ActionWithConditions)"
         >
           <span class="action__name">{{ action.name }}</span>
           <span
@@ -32,7 +36,7 @@ function showModal() {
     <Teleport to="body">
       <TransitionOpacity>
         <ModalBase v-if="isModalShow" @hide-modal="hideModal">
-          <ActionOne @close="hideModal" />
+          <ActionOne :action="chosenAction" @close="hideModal" />
         </ModalBase>
       </TransitionOpacity>
     </Teleport>

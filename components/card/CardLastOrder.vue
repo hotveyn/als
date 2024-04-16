@@ -4,7 +4,7 @@ import { defineProps } from "vue";
 defineProps<{
   order: {
     id: number;
-    imgLink: string;
+    imageName: string;
     price: number;
   };
 }>();
@@ -12,7 +12,11 @@ defineProps<{
 
 <template>
   <div class="card-last-order">
-    <img :src="order.imgLink" alt="orderLink" class="card-last-order__img" />
+    <img
+      :src="`/uploads/${order.imageName}.png`"
+      alt="orderLink"
+      class="card-last-order__img"
+    />
     <p class="card-last-order__price">
       {{ new Intl.NumberFormat("ru-RU").format(order.price) }}₽
     </p>

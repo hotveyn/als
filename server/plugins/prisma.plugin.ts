@@ -34,16 +34,6 @@ async function initParams() {
   try {
     await prisma.param.create({
       data: {
-        type: "phone",
-        value: "79646976603",
-      },
-    });
-  } catch (e) {
-    // console.log("phone");
-  }
-  try {
-    await prisma.param.create({
-      data: {
         type: "vk",
         value: "https://vk.com",
       },

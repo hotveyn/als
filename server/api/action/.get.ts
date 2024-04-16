@@ -1,24 +1,13 @@
 import { faker } from "@faker-js/faker";
+import { prisma } from "~/server/plugins/prisma.plugin";
 
 export default defineEventHandler(async (e) => {
-  return [
-    {
-      id: 1,
-      name: faker.lorem.word({
-        length: 20,
-      }),
+  return await prisma.action.findMany({
+    orderBy: {
+      priority: "desc",
     },
-    {
-      id: 2,
-      name: faker.lorem.word({
-        length: 20,
-      }),
-    },
-    {
-      id: 3,
-      name: faker.lorem.word({
-        length: 20,
-      }),
-    },
-  ];
+    include:{
+      conditions: true
+    }
+  });
 });

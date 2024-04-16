@@ -11,23 +11,6 @@ export default defineEventHandler(async (): Promise<Group[]> => {
     SELECT DISTINCT groups.*
     FROM groups
     INNER JOIN products 
+    ORDER BY created_at DESC
   `;
-  // return [
-  //   {
-  //     id: 1,
-  //     name: "Косметика",
-  //   },
-  //   {
-  //     id: 2,
-  //     name: "Одежда",
-  //   },
-  //   {
-  //     id: 3,
-  //     name: "Обувь",
-  //   },
-  //   {
-  //     id: 4,
-  //     name: "Аксесуары",
-  //   },
-  // ];
 });

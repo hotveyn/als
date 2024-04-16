@@ -1,14 +1,9 @@
 <script setup lang="ts">
+import type { Product } from "@prisma/client";
 import { defineProps } from "vue";
 
 defineProps<{
-  product: {
-    sale?: number;
-    price: number;
-    salePrice: number;
-    imgLink: string;
-    name: string;
-  };
+  product: Product;
 }>();
 </script>
 
@@ -17,7 +12,11 @@ defineProps<{
     <p v-if="product.sale" class="card-catalog__sale">
       SALE {{ product.sale }}%
     </p>
-    <img class="card-catalog__img" :src="product.imgLink" alt="product" />
+    <img
+      class="card-catalog__img"
+      :src="`/uploads/${product.imageName}.png`"
+      alt="product"
+    />
     <div class="card-catalog__text">
       <p class="card-catalog__name">
         {{ product.name }}

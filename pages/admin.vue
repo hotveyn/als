@@ -3,20 +3,18 @@ definePageMeta({
   middleware: "auth",
   layout: false,
 });
-
-const router = useRouter();
-async function logout() {
-  await $fetch("/api/auth/logout", {
-    method: "POST",
-  });
-  await router.push({ path: "/login" });
-}
 </script>
 
 <template>
   <div class="admin">
+    <UNotifications />
     <div class="admin__layout">
+      <SectionAdminAlbum />
+      <SectionAdminSocials />
+      <SectionAdminActions />
+      <SectionAdminProducts />
       <SectionAdminLastOrders />
+      <SectionAdminGroups />
     </div>
   </div>
 </template>
@@ -24,9 +22,13 @@ async function logout() {
 <style scoped lang="scss">
 .admin {
   &__layout {
-    max-width: 1100px;
+    max-width: 1500px;
     width: 100%;
     margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    padding: 50px 0;
   }
 }
 </style>

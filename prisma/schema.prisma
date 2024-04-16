@@ -11,33 +11,68 @@ datasource db {
 }
 
 model LastOrder {
-  id      Int    @id @default(autoincrement())
-  imgLink String @map("img_link")
-  name    String 
-  vkLink  String @map("vk_link")
-  price   Float
+  id        Int      @id @default(autoincrement())
+  imageName String?  @map("image_name") @default("default")
+  name      String
+  vkLink    String   @map("vk_link")
+  priority  Int
+  price     Float
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @default(now()) @updatedAt @map("updated_at")
 
   @@map("last_orders")
 }
 
+model Action {
+  id          Int      @id @default(autoincrement())
+  name        String
+  title       String
+  description String
+  imageName   String?  @map("image_name") @default("default")
+  priority    Int
+  time        String
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @default(now()) @updatedAt @map("updated_at")
+
+  conditions ActionCondition[]
+
+  @@map("actions")
+}
+
+model ActionCondition {
+  id        Int      @id @default(autoincrement())
+  actionId  Int      @map("action_id")
+  text      String
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @default(now()) @updatedAt @map("updated_at")
+
+  action Action @relation(fields: [actionId], references: [id], onDelete: Cascade)
+
+  @@map("actions_conditions")
+}
+
 model Product {
-  id        Int    @id @default(autoincrement())
-  imgLink   String @map("img_link")
-  vkLink    String @map("vk_link")
+  id        Int      @id @default(autoincrement())
+  imageName String?  @map("image_name") @default("default")
+  vkLink    String   @map("vk_link")
   name      String
   price     Float
-  salePrice Float  @map("sale_price")
+  salePrice Float    @map("sale_price")
   sale      Float
   groupId   Int
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @default(now()) @updatedAt @map("updated_at")
 
-  group Group @relation(fields: [groupId], references: [id], onDelete: Restrict)
+  group Group  @relation(fields: [groupId], references: [id], onDelete: Restrict)
 
   @@map("products")
 }
 
 model Group {
-  id   Int    @id @default(autoincrement())
-  name String
+  id        Int      @id @default(autoincrement())
+  name      String
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @default(now()) @updatedAt @map("updated_at")
 
   products Product[]
 
@@ -45,14 +80,25 @@ model Group {
 }
 
 model Param {
-  type  String @id
-  value String
+  type      String   @id
+  value     String
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @default(now()) @updatedAt @map("updated_at")
 
   @@map("params")
 }
 
 model Token {
-  token String @id
+  token     String   @id
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @default(now()) @updatedAt @map("updated_at")
 
   @@map("tokens")
+}
+
+model Image {
+  name      String      @id
+  createdAt DateTime    @default(now()) @map("created_at")
+
+  @@map("images")
 }

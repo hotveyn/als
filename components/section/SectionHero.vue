@@ -19,7 +19,7 @@ const slideWidth = computed<number>(() => {
 </script>
 
 <template>
-  <div id="hero" class="opener">
+  <section id="hero" class="opener">
     <div class="container opener__content">
       <div class="opener__left">
         <div class="opener_info">
@@ -55,7 +55,16 @@ const slideWidth = computed<number>(() => {
             :key="lastOrder.id"
             :style="{ width: `${slideWidth}%` }"
           >
-            <CardLastOrder :order="lastOrder" class="last__card" />
+            <CardLastOrder
+              :order="
+                lastOrder as unknown as Required<{
+                  id: number;
+                  imageName: string;
+                  price: number;
+                }>
+              "
+              class="last__card"
+            />
           </SwiperSlide>
         </Swiper>
         <img
@@ -74,7 +83,7 @@ const slideWidth = computed<number>(() => {
         />
       </div>
     </div>
-  </div>
+  </section>
 </template>
 <style scoped lang="scss">
 .opener {

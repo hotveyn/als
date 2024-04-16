@@ -1,5 +1,5 @@
 <template>
-  <div id="brands" class="brands">
+  <section id="brands" class="brands">
     <div class="container brands__content">
       <h2 class="brands__title brands__title_desktop h2">
         вы можете заказать продукцию таких брендов как
@@ -60,7 +60,7 @@
         <img class="brands__logo" src="/images/brands/ZARA.png" alt="ZARA" />
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <style scoped lang="scss">

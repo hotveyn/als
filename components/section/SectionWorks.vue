@@ -1,5 +1,5 @@
 <template>
-  <div class="works">
+  <section class="works">
     <div class="works__content container">
       <h2 class="h2">Как мы работаем</h2>
       <div class="works__works">
@@ -34,7 +34,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </section>
 </template>
 <style lang="scss" scoped>
 .works {

@@ -1,5 +1,5 @@
 <template>
-  <div id="why-we-are" class="why">
+  <section id="why-we-are" class="why">
     <div class="container why__content">
       <h2 class="why__h2 h2">Почему именно мы?</h2>
       <div class="why__whys">
@@ -68,7 +68,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <style scoped lang="scss">

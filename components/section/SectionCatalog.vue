@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { type Swiper } from "swiper";
-import type { IProduct } from "~/server/api/product/[groupId].get";
 import { useWindowSize } from "@vueuse/core";
+import type { Product } from "@prisma/client";
 
 function setSwiperInstance(swiperInstance: Swiper) {
   swiper.value = swiperInstance;
@@ -11,7 +11,7 @@ const selectedGroupId = ref<number | null>(null);
 
 const { data: productGroups } = await useFetch("/api/group");
 
-const products = ref<IProduct[] | null>(null);
+const products = ref<Product[]>();
 const loading = ref<boolean>(true);
 
 const swiper = ref<Swiper | undefined>(undefined);
@@ -27,13 +27,17 @@ async function selectGroup(id: number) {
 }
 
 async function getProducts(groupId: number) {
-  const { data: responseProduct } = await useFetch(`/api/product/${groupId}`);
+  const { data: responseProduct } = await useFetch(
+    `/api/product/group/${groupId}`,
+  );
 
   loading.value = false;
 
-  products.value = responseProduct.value;
+  products.value = responseProduct.value as unknown as Product[];
 }
+
 const userView = useWindowSize();
+
 const sliderWidth = computed<number | undefined | string>(() => {
   if (userView.width.value > 1670) {
     return "16.1";
@@ -50,7 +54,7 @@ const sliderWidth = computed<number | undefined | string>(() => {
 </script>
 
 <template>
-  <div id="catalog" class="catalog">
+  <section id="catalog" class="catalog">
     <div class="container catalog__content">
       <div class="catalog__header">
         <h2 class="catalog__title h2">КАТАЛОГ</h2>
@@ -103,7 +107,7 @@ const sliderWidth = computed<number | undefined | string>(() => {
         <img src="/assets/icons/red.svg" alt="red " />
       </a>
     </div>
-  </div>
+  </section>
 </template>
 
 <style scoped lang="scss">

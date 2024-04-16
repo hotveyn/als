@@ -1,4 +1,10 @@
 <script setup lang="ts">
+import type { Action, ActionCondition } from "@prisma/client";
+export type ActionWithConditions = Action & { conditions: ActionCondition[] };
+const props = defineProps<{
+  action: ActionWithConditions | undefined;
+}>();
+console.log(props.action);
 const emit = defineEmits<{
   close: [];
 }>();
@@ -7,33 +13,32 @@ const emit = defineEmits<{
 <template>
   <div class="baner">
     <div class="baner__picture">
-      <img class="baner__img" src="/images/modal.png" alt="asd" />
+      <img
+        class="baner__img"
+        :src="`/uploads/${action?.imageName}.png`"
+        alt="asd"
+      />
     </div>
-    <div class="baner__info">
+    <div v-if="action" class="baner__info">
       <h2 class="h2 baner__title">
-        Приведи друга и получи скидку 5% на следующий заказ
+        {{ action.title }}
       </h2>
       <p class="baner__description">
-        Пригласи друга присоединиться к нашей крутой компании! Когда твой друг
-        сделает свой первый заказ у нас и укажет, что он пришел по твоей
-        рекомендации, вы оба получите скидку!
+        {{ action.description }}
       </p>
-      <p class="baner__if">Условия акции:</p>
+      <p v-if="action.conditions" class="baner__if">Условия акции:</p>
       <ul class="baner__ul">
-        <li class="baner__li">
-          Скидка доступна после первого заказа Вашего друга.
-        </li>
-        <li class="baner__li">
-          Не ограничено количество приглашений – приглашайте всех своих друзей!
-        </li>
-        <li class="baner__li">
-          Скидка будет предоставлена только в случае, если друг укажет, что
-          пришел по вашему приглашению при оформлении заказа.
+        <li
+          v-for="condition in action.conditions"
+          :key="condition.id"
+          class="baner__li"
+        >
+          {{ condition.text }}
         </li>
       </ul>
       <p class="baner__time">
         Время проведения акции:
-        <span class="baner__time-number">Без срока</span>
+        <span class="baner__time-number">{{ action.time }}</span>
       </p>
     </div>
     <img
@@ -119,6 +124,8 @@ const emit = defineEmits<{
   }
 
   &__info {
+    width: 100%;
+    overflow: hidden;
     padding: 20px 30px;
     background-color: white;
     // overflow-y: scroll;

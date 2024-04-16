@@ -34,14 +34,14 @@ const faqs = [
 </script>
 
 <template>
-  <div class="faq">
+  <section class="faq">
     <div class="faq__content container">
       <h2 class="h2 faq__title">Ответы на часто задаваемые вопросы</h2>
       <div class="faq__questions">
         <AccordionBase v-for="faq in faqs" :key="faq.id" :accordion="faq" />
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <style lang="scss" scoped>

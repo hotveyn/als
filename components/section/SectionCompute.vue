@@ -101,7 +101,7 @@ function selectKind(id: Kind) {
 </script>
 
 <template>
-  <div class="compute">
+  <section class="compute">
     <div class="compute__content container">
       <h2 class="compute__h2 h2">Расчёт цены</h2>
       <ComputeMenu :kind="selectedKind" class="compute__compute-menu" />
@@ -118,7 +118,7 @@ function selectKind(id: Kind) {
         </div>
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <style scoped lang="scss">

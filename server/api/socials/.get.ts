@@ -8,11 +8,6 @@ export default defineEventHandler(async (event) => {
         type: "email",
       },
     }),
-    phone: await prisma.param.findUnique({
-      where: {
-        type: "phone",
-      },
-    }),
     vk: await prisma.param.findUnique({
       where: {
         type: "vk",
@@ -21,6 +16,11 @@ export default defineEventHandler(async (event) => {
     telegram: await prisma.param.findUnique({
       where: {
         type: "telegram",
+      },
+    }),
+    euro: await prisma.param.findUnique({
+      where: {
+        type: "euro",
       },
     }),
   };
