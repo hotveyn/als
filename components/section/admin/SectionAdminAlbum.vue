@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import type { Image } from "@prisma/client";
+
 const columns = [
   {
     key: "name",
@@ -10,15 +12,17 @@ const columns = [
   },
 ];
 
-const { data: lastOrders, refresh } = useFetch("/api/images/");
+const { data: images, refresh } = useFetch("/api/images/");
 
 const pageCount = 10;
 const page = ref(1);
 const toast = useToast();
 const isOpen = ref(false);
+const isModal = ref(false);
+const imageToSee = ref<Image>();
 
 const rows = computed(() => {
-  return lastOrders.value!.slice(
+  return images.value!.slice(
     (page.value - 1) * pageCount,
     page.value * pageCount,
   );
@@ -39,6 +43,13 @@ function items(row: {
         click: () => deleteOne(row.name),
       },
     ],
+    [
+      {
+        label: "Посмотреть изображение",
+        icon: "i-heroicons-arrows-pointing-out",
+        click: () => seeImage(row.name),
+      },
+    ],
   ];
 }
 
@@ -54,6 +65,14 @@ async function deleteOne(id: string) {
 async function created() {
   isOpen.value = false;
   await refresh();
+}
+
+function seeImage(name: string) {
+  const img = images.value?.find((image) => image.name === name);
+  if (img) {
+    isModal.value = true;
+    imageToSee.value = img as unknown as Image;
+  }
 }
 </script>
 
@@ -83,7 +102,7 @@ async function created() {
       <UPagination
         v-model="page"
         :page-count="pageCount"
-        :total="lastOrders && lastOrders.length"
+        :total="images && images.length"
       />
       <UButton
         class="socials__save"
@@ -99,6 +118,15 @@ async function created() {
     <USlideover v-model="isOpen">
       <FormImageCreate @done="created()" />
     </USlideover>
+    <UModal v-model="isModal">
+      <div class="img-wrapper">
+        <img
+          :src="`/uploads/${imageToSee?.name}`"
+          alt="asd"
+          class="img-to-see"
+        />
+      </div>
+    </UModal>
   </section>
 </template>
 
@@ -107,5 +135,16 @@ async function created() {
   display: flex;
   align-items: center;
   gap: 10px;
+}
+
+.img-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.img-to-see {
+  max-width: 80dvw;
+  max-height: 80dvh;
 }
 </style>

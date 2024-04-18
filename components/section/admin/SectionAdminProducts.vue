@@ -32,7 +32,7 @@ const columns = [
   },
   {
     key: "imageName",
-    label: "Название фото",
+    label: "Название изображение",
   },
   {
     key: "actions",

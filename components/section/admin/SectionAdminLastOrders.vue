@@ -6,8 +6,8 @@ const columns = [
     sortable: true,
   },
   {
-    key: "imgLink",
-    label: "Ссылка на изображение",
+    key: "imageName",
+    label: "Название изображение",
     sortable: true,
   },
   {
