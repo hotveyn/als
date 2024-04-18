@@ -1,6 +1,0 @@
-const SectionWorks_vue_vue_type_style_index_0_scoped_6b5b6a5b_lang = ".works__works[data-v-6b5b6a5b]{display:grid;grid-template-columns:repeat(3,1fr);margin-top:40px;row-gap:30px}.work[data-v-6b5b6a5b]{align-items:center;display:grid;gap:10px;grid-template-columns:80px 290px 2px}.work__text[data-v-6b5b6a5b]{font-size:max(min(14px + 6 * (100vw - 400px)/1620,20px),14px);font-weight:600;line-height:29.26px}@media screen and (max-width:1500px){.works__works[data-v-6b5b6a5b]{grid-template-columns:repeat(2,1fr);justify-items:center}.works__work:nth-child(odd) .work__arr[data-v-6b5b6a5b]{margin-left:30px}}@media screen and (max-width:1000px){.works__works[data-v-6b5b6a5b]{justify-items:center}.works__work:nth-child(odd) .work__arr[data-v-6b5b6a5b]{margin-left:0}.work[data-v-6b5b6a5b]{grid-template-columns:80px 200px 21px}}@media screen and (max-width:750px){.works__works[data-v-6b5b6a5b]{grid-template-columns:1fr}.work[data-v-6b5b6a5b]{grid-template-columns:50px 220px 21px}.work__ico[data-v-6b5b6a5b]{width:50px}.work__arr[data-v-6b5b6a5b]{rotate:90deg}.works__content .h2[data-v-6b5b6a5b]{text-align:center}}";
-
-const SectionWorksStyles_BY30Tc5x = [SectionWorks_vue_vue_type_style_index_0_scoped_6b5b6a5b_lang];
-
-export { SectionWorksStyles_BY30Tc5x as default };
-//# sourceMappingURL=SectionWorks-styles.BY30Tc5x.mjs.map
