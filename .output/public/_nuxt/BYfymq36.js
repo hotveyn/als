@@ -1,0 +1,1 @@
+import{_ as t}from"./esjtI8-P.js";import{z as o,J as n,W as s}from"./C9n3QNrM.js";const _={},r={class:"button-base"};function c(e,a){return o(),n("button",r,[s(e.$slots,"default",{},void 0,!0)])}const u=t(_,[["render",c],["__scopeId","data-v-0e17ee1b"]]);export{u as _};

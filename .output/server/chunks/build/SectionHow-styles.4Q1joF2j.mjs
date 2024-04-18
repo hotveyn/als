@@ -1,0 +1,6 @@
+const SectionHow_vue_vue_type_style_index_0_scoped_0d61175b_lang = ".how__content[data-v-0d61175b]{border:5px solid #00b94b;border-radius:28px;display:grid;gap:max(min(15px + 45 * (100vw - 400px)/1620,60px),15px);grid-template-columns:1fr 1fr;padding:max(min(40px + 20 * (100vw - 750px)/1620,60px),40px)}.how__img[data-v-0d61175b]{border-radius:20px;height:100%;-o-object-fit:cover;object-fit:cover;width:100%}.how__information[data-v-0d61175b]{display:flex;flex-direction:column;gap:max(min(10px + 20 * (100vw - 400px)/1620,30px),10px);justify-content:center;margin-top:max(min(15px + 25 * (100vw - 400px)/1620,40px),15px)}.how__text[data-v-0d61175b]{margin-top:10px}.how__comission[data-v-0d61175b]{color:rgba(0,0,0,.8);font-size:max(min(14px + 6 * (100vw - 400px)/1620,20px),14px);font-weight:500;margin-top:20px;text-transform:uppercase}@media screen and (max-width:1000px){.how__content[data-v-0d61175b]{grid-template-columns:1fr}}@media screen and (max-width:700px){.how__content[data-v-0d61175b]{border:0;padding:0}}";
+
+const SectionHowStyles_4Q1joF2j = [SectionHow_vue_vue_type_style_index_0_scoped_0d61175b_lang];
+
+export { SectionHowStyles_4Q1joF2j as default };
+//# sourceMappingURL=SectionHow-styles.4Q1joF2j.mjs.map

@@ -1,0 +1,6 @@
+const SectionBrands_vue_vue_type_style_index_0_scoped_cc81f689_lang = ".brands[data-v-cc81f689]{width:100%}.brands__title[data-v-cc81f689]{margin:0 auto;width:-moz-fit-content;width:fit-content}.brands__logos[data-v-cc81f689]{display:grid;gap:23px;grid-template-columns:repeat(8,1fr);justify-items:center;margin-top:30px}.brands__logo[data-v-cc81f689]{opacity:.6;transition:opacity .2s;width:max(min(100px + 13 * (100vw - 400px)/1620,113px),100px)}.brands__logo[data-v-cc81f689]:hover{opacity:1}@media screen and (min-width:1401px){.brands__title_mobile[data-v-cc81f689]{display:none}}@media screen and (max-width:1400px){.brands__logos[data-v-cc81f689]{grid-template-columns:repeat(4,1fr)}.brands__title_mobile[data-v-cc81f689]{display:block}.brands__title_desktop[data-v-cc81f689]{display:none}}@media screen and (max-width:600px){.brands__logos[data-v-cc81f689]{grid-template-columns:repeat(3,1fr)}}@media screen and (max-width:400px){.brands__logos[data-v-cc81f689]{grid-template-columns:repeat(2,1fr)}}";
+
+const SectionBrandsStyles_BxVdMwC_ = [SectionBrands_vue_vue_type_style_index_0_scoped_cc81f689_lang];
+
+export { SectionBrandsStyles_BxVdMwC_ as default };
+//# sourceMappingURL=SectionBrands-styles.BxVdMwC_.mjs.map
