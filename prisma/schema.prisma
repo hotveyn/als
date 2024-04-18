@@ -7,7 +7,7 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-  url      = "postgresql://admin:admin@localhost:5432/als_db?schema=public"
+  url      = "postgresql://postgres:postgres@localhost:5432/als_db?schema=public"
 }
 
 model LastOrder {

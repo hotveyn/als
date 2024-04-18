@@ -1,1 +1,0 @@
-import{y as a,z as o,s as r}from"./DLKwB8SR.js";import{u as s}from"./DKBzoGXZ.js";import"./C9n3QNrM.js";const n=a(async()=>{let e,t;if(!([e,t]=o(()=>s("/api/auth/check","$vcG5kb1hEj")),e=await e,t(),e).data.value)return r("login")});export{n as default};
