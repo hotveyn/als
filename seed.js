@@ -3,11 +3,6 @@ import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 (async function () {
-  // await prisma.image.create({
-  //   data: {
-  //     name: "default",
-  //   },
-  // });
   for (let i = 0; i < 50; i++) {
     await prisma.product.create({
       data: {

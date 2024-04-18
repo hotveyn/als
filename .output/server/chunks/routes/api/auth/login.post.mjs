@@ -1,12 +1,13 @@
-import { d as defineEventHandler, r as readBody, p as prisma, s as setCookie, c as createError } from '../../../runtime.mjs';
+import { d as defineEventHandler, r as readBody, s as setCookie, c as createError } from '../../../runtime.mjs';
+import { p as prisma } from '../../../_/prisma.mjs';
 import crypto from 'crypto';
 import 'node:http';
 import 'node:https';
 import 'fs';
 import 'path';
-import '@prisma/client';
 import 'node:fs';
 import 'node:url';
+import '@prisma/client';
 
 const rnds8Pool = new Uint8Array(256); // # of random values to pre-allocate
 

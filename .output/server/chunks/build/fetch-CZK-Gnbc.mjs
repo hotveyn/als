@@ -1,5 +1,5 @@
 import { computed, toValue, reactive, ref, shallowRef, toRef, getCurrentInstance, onServerPrefetch, unref } from 'vue';
-import { N as hash } from '../runtime.mjs';
+import { M as hash } from '../runtime.mjs';
 import { j as fetchDefaults, h as asyncDataDefaults, g as useNuxtApp, i as createError } from './server.mjs';
 
 const isDefer = (dedupe) => dedupe === "defer" || dedupe === false;

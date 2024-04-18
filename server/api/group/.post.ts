@@ -1,5 +1,5 @@
 import * as v from 'valibot'
-import { prisma } from '~/server/plugins/prisma.plugin';
+import { prisma } from '~/server/prisma';
 
 export default defineEventHandler(async (e) => {
   const schema = v.object({

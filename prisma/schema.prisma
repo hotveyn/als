@@ -7,12 +7,12 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-  url      = env("DATABASE_URL")
+  url      = "postgresql://admin:admin@localhost:5432/als_db?schema=public"
 }
 
 model LastOrder {
   id        Int      @id @default(autoincrement())
-  imageName String?  @map("image_name") @default("default")
+  imageName String?  @default("default") @map("image_name")
   name      String
   vkLink    String   @map("vk_link")
   priority  Int
@@ -28,7 +28,7 @@ model Action {
   name        String
   title       String
   description String
-  imageName   String?  @map("image_name") @default("default")
+  imageName   String?  @default("default") @map("image_name")
   priority    Int
   time        String
   createdAt   DateTime @default(now()) @map("created_at")
@@ -53,17 +53,17 @@ model ActionCondition {
 
 model Product {
   id        Int      @id @default(autoincrement())
-  imageName String?  @map("image_name") @default("default")
+  imageName String?  @default("default") @map("image_name")
   vkLink    String   @map("vk_link")
   name      String
   price     Float
   salePrice Float    @map("sale_price")
   sale      Float
-  groupId   Int
+  groupId   Int      @map("group_id")
   createdAt DateTime @default(now()) @map("created_at")
   updatedAt DateTime @default(now()) @updatedAt @map("updated_at")
 
-  group Group  @relation(fields: [groupId], references: [id], onDelete: Restrict)
+  group Group @relation(fields: [groupId], references: [id], onDelete: Restrict)
 
   @@map("products")
 }
@@ -97,8 +97,8 @@ model Token {
 }
 
 model Image {
-  name      String      @id
-  createdAt DateTime    @default(now()) @map("created_at")
+  name      String   @id
+  createdAt DateTime @default(now()) @map("created_at")
 
   @@map("images")
 }

@@ -1,6 +1,6 @@
 import fs from "node:fs/promises";
 import { resolve } from "node:path";
-import { prisma } from "~/server/plugins/prisma.plugin";
+import { prisma } from "~/server/prisma";
 
 export default defineEventHandler(async (e) => {
   const name = getRouterParam(e, "name");

@@ -1,11 +1,12 @@
-import { d as defineEventHandler, p as prisma } from '../../../runtime.mjs';
+import { d as defineEventHandler } from '../../../runtime.mjs';
+import { p as prisma } from '../../../_/prisma.mjs';
 import 'node:http';
 import 'node:https';
 import 'fs';
 import 'path';
-import '@prisma/client';
 import 'node:fs';
 import 'node:url';
+import '@prisma/client';
 
 const _get = defineEventHandler(async (e) => {
   return await prisma.action.findMany({

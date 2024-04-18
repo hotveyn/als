@@ -1,17 +1,18 @@
-import { d as defineEventHandler, p as prisma } from '../../../runtime.mjs';
+import { d as defineEventHandler } from '../../../runtime.mjs';
+import { p as prisma } from '../../../_/prisma.mjs';
 import 'node:http';
 import 'node:https';
 import 'fs';
 import 'path';
-import '@prisma/client';
 import 'node:fs';
 import 'node:url';
+import '@prisma/client';
 
 const _get = defineEventHandler(async () => {
   return await prisma.$queryRaw`
-    SELECT DISTINCT groups.*
-    FROM groups
-    INNER JOIN products 
+    SELECT DISTINCT g.*
+    FROM groups g
+    INNER JOIN products p on p.group_id = g.id
     ORDER BY created_at DESC
   `;
 });

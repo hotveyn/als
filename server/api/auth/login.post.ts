@@ -1,5 +1,5 @@
 import { v4 } from "uuid";
-import { prisma } from "~/server/plugins/prisma.plugin";
+import { prisma } from "~/server/prisma";
 
 export default defineEventHandler(async (e) => {
   const { code } = await readBody(e);

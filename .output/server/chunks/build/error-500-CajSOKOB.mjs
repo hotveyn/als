@@ -6,7 +6,6 @@ import 'node:http';
 import 'node:https';
 import 'fs';
 import 'path';
-import '@prisma/client';
 import 'node:fs';
 import 'node:url';
 import 'unhead';

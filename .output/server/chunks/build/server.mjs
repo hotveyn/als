@@ -1,5 +1,5 @@
 import { version, ref, watchEffect, watch, getCurrentInstance, defineAsyncComponent, toRef, isRef, defineComponent, h, inject, computed, unref, provide, shallowReactive, Suspense, nextTick, Transition, hasInjectionContext, mergeProps, useSSRContext, createApp, effectScope, reactive, onErrorCaptured, onServerPrefetch, createVNode, resolveDynamicComponent, shallowRef, isReadonly, isShallow, isReactive, toRaw, withCtx } from 'vue';
-import { n as useRuntimeConfig$1, v as joinRelativeURL, $ as $fetch, w as withQuery, x as hasProtocol, y as parseURL, z as isScriptProtocol, m as joinURL, c as createError$1, A as defuFn, B as klona, C as defu, D as sanitizeStatusCode, E as createDefu, F as createHooks, G as toRouteMatcher, H as createRouter$1 } from '../runtime.mjs';
+import { n as useRuntimeConfig$1, t as joinRelativeURL, $ as $fetch, w as withQuery, v as hasProtocol, x as parseURL, y as isScriptProtocol, m as joinURL, c as createError$1, z as defuFn, A as klona, B as defu, C as sanitizeStatusCode, D as createDefu, E as createHooks, F as toRouteMatcher, G as createRouter$1 } from '../runtime.mjs';
 import { getActiveHead } from 'unhead';
 import { defineHeadPlugin, composableNames } from '@unhead/shared';
 import { useRoute as useRoute$1, RouterView, createMemoryHistory, createRouter, START_LOCATION } from 'vue-router';
@@ -10,7 +10,6 @@ import 'node:http';
 import 'node:https';
 import 'fs';
 import 'path';
-import '@prisma/client';
 import 'node:fs';
 import 'node:url';
 
@@ -738,7 +737,7 @@ const cfg0 = defineAppConfig({
 });
 const inlineConfig = {
   "nuxt": {
-    "buildId": "f2d5731b-d3a5-4b02-873f-f92dafd1cab0"
+    "buildId": "358ad40a-d42a-48ac-a6df-6211feb79022"
   },
   "ui": {
     "primary": "green",

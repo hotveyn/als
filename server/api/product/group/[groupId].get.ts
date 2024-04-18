@@ -1,5 +1,5 @@
 import { Product } from "@prisma/client";
-import { prisma } from "~/server/plugins/prisma.plugin";
+import { prisma } from "~/server/prisma";
 
 export default defineEventHandler(async (e): Promise<Product[]> => {
   const groupId = Number(getRouterParam(e, "groupId"));

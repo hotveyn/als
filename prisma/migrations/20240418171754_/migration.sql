@@ -47,7 +47,7 @@ CREATE TABLE "products" (
     "price" DOUBLE PRECISION NOT NULL,
     "sale_price" DOUBLE PRECISION NOT NULL,
     "sale" DOUBLE PRECISION NOT NULL,
-    "groupId" INTEGER NOT NULL,
+    "group_id" INTEGER NOT NULL,
     "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updated_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
@@ -95,4 +95,4 @@ CREATE TABLE "images" (
 ALTER TABLE "actions_conditions" ADD CONSTRAINT "actions_conditions_action_id_fkey" FOREIGN KEY ("action_id") REFERENCES "actions"("id") ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "products" ADD CONSTRAINT "products_groupId_fkey" FOREIGN KEY ("groupId") REFERENCES "groups"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE "products" ADD CONSTRAINT "products_group_id_fkey" FOREIGN KEY ("group_id") REFERENCES "groups"("id") ON DELETE RESTRICT ON UPDATE CASCADE;

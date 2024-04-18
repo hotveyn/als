@@ -1,11 +1,12 @@
-import { d as defineEventHandler, g as getRouterParam, c as createError, p as prisma } from '../../../../runtime.mjs';
+import { d as defineEventHandler, g as getRouterParam, c as createError } from '../../../../runtime.mjs';
+import { p as prisma } from '../../../../_/prisma.mjs';
 import 'node:http';
 import 'node:https';
 import 'fs';
 import 'path';
-import '@prisma/client';
 import 'node:fs';
 import 'node:url';
+import '@prisma/client';
 
 const _groupId__get = defineEventHandler(async (e) => {
   var _a;

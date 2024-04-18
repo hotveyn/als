@@ -1,5 +1,5 @@
 import { faker } from "@faker-js/faker";
-import { prisma } from "../../plugins/prisma.plugin";
+import { prisma } from "../../prisma";
 
 export default defineEventHandler(async (event) => {
   return {
