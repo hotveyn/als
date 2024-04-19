@@ -17,7 +17,6 @@ export default defineEventHandler(async (e) => {
     console.log(process.env.SESSION_PASSWORD);
     setCookie(e, "token", token, {
       httpOnly: true,
-      secure: true,
       sameSite: true,
     });
 
