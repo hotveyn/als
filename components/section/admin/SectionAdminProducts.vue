@@ -40,11 +40,13 @@ const columns = [
   },
 ];
 
-const products = ref<Product[] | null>(null);
+const products = ref<Product[] | null>([]);
 const loading = ref<boolean>(true);
 
 if (groups.value && groups.value[0]) {
   await getProducts(groups.value[0].id);
+} else {
+  loading.value = false;
 }
 
 async function getProducts(groupId: number) {

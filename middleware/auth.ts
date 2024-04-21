@@ -1,4 +1,5 @@
 export default defineNuxtRouteMiddleware(async () => {
-  if (!(await useFetch("/api/auth/check")).data.value)
-    return navigateTo("login");
+  const { data: checkResult } = await useFetch("/api/auth/check");
+  console.log("checkResult", checkResult.value);
+  if (!checkResult.value) return navigateTo("login");
 });

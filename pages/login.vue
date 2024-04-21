@@ -3,7 +3,6 @@ definePageMeta({
   layout: false,
 });
 
-const router = useRouter();
 const buttonMessage = ref("Войти");
 
 const formValues = reactive({
@@ -20,7 +19,8 @@ async function goLogin() {
       method: "post",
       body: formValues,
     });
-    await router.push({ path: "/admin" });
+
+    window.location.replace("/admin");
   } catch (e) {
     changeButtonText("Ошибка входа");
   }
