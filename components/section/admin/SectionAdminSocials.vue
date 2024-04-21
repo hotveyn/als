@@ -94,23 +94,35 @@ async function saveEuro() {
     </div>
     <div class="socials__socials">
       <div class="vk socials__social">
-        <UInput v-model="vk" />
+        <label class="socials__label">
+          ВК
+          <UInput v-model="vk" />
+        </label>
         <UButton block class="socials__save" @click="saveVk">Сохранить</UButton>
       </div>
       <div class="telegram socials__social">
-        <UInput v-model="telegram" />
+        <label class="socials__label">
+          Телеграм
+          <UInput v-model="telegram" />
+        </label>
         <UButton block class="socials__save" @click="saveTelegram"
           >Сохранить</UButton
         >
       </div>
       <div class="email socials__social">
-        <UInput v-model="email" />
+        <label class="socials__label">
+          Email
+          <UInput v-model="email" />
+        </label>
         <UButton block class="socials__save" @click="saveEmail"
           >Сохранить</UButton
         >
       </div>
       <div class="euro socials__social">
-        <UInput v-model="euro" type="number" />
+        <label class="socials__label">
+          Курс евро
+          <UInput v-model="euro" type="number" />
+        </label>
         <UButton block class="socials__save" @click="saveEuro"
           >Сохранить</UButton
         >
@@ -121,6 +133,10 @@ async function saveEuro() {
 
 <style scoped lang="scss">
 .socials {
+  &__label {
+    display: grid;
+    gap: 10px;
+  }
   &__socials {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
