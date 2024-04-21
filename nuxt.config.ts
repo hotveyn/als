@@ -7,9 +7,20 @@ export default defineNuxtConfig({
     "nuxt-swiper",
     "@nuxt/ui",
     "nuxt-seo-experiments",
+    "@nuxtjs/sitemap",
   ],
+  robots: {
+    disallow: ["/login", "/admin"],
+  },
   site: {
     url: "https://als-shop.ru/",
+    name: "ALS",
+    description:
+      "ALS — ваш надёжный партнёр в доставке товаров из Европы в Россию. Мы предоставляем быструю и надежную услугу доставки, помогая вам получить желанные товары известных европейских брендов прямо к вам домой. Оптимизируйте свой шоппинг с ALS уже сегодня!",
+    defaultLocale: "ru",
+  },
+  seo: {
+    redirectToCanonicalSiteUrl: true,
   },
   vite: {
     css: {
