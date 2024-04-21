@@ -1,4 +1,4 @@
-<script lang="ts">
+<script lang="ts" setup>
 useSeoMeta({
   title: "ALS",
   ogTitle: "ALS | Доставка товаров из Европы в РФ",
