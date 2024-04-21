@@ -6,7 +6,11 @@ export default defineNuxtConfig({
     "@nuxtjs/google-fonts",
     "nuxt-swiper",
     "@nuxt/ui",
+    "nuxt-seo-experiments",
   ],
+  site: {
+    url: "https://als-shop.ru/",
+  },
   vite: {
     css: {
       preprocessorOptions: {
@@ -39,5 +43,5 @@ export default defineNuxtConfig({
       cors: true,
       headers: { "access-control-allow-methods": "GET" },
     },
-  }
+  },
 });
