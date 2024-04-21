@@ -9,6 +9,10 @@ export default defineNuxtConfig({
     "nuxt-seo-experiments",
     "@nuxtjs/sitemap",
   ],
+  gtag: {
+    // Your primary Google tag ID
+    id: "G-YVRHRX7MPD",
+  },
   robots: {
     disallow: ["/login", "/admin"],
   },
