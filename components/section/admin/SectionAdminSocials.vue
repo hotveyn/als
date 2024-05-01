@@ -15,7 +15,7 @@ onMounted(async () => {
 
 async function saveVk() {
   try {
-    const res = await $fetch("/api/socials/vk", {
+    await $fetch("/api/socials/vk", {
       method: "patch",
       body: {
         value: vk.value,

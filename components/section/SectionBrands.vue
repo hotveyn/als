@@ -6,58 +6,94 @@
       </h2>
       <h2 class="brands__title brands__title_mobile h2">бренды</h2>
       <div class="brands__logos">
-        <img
-          class="brands__logo"
-          src="/images/brands/Adidas.png"
-          alt="Adidas"
-        />
-        <img
-          class="brands__logo"
-          src="/images/brands/amazon.png"
-          alt="amazond"
-        />
-        <img
-          class="brands__logo"
-          src="/images/brands/Armani.png"
-          alt="armani"
-        />
-        <img
-          class="brands__logo"
-          src="/images/brands/Berska.png"
-          alt="Berska"
-        />
-        <img class="brands__logo" src="/images/brands/Boss.png" alt="Boss" />
-        <img
-          class="brands__logo"
-          src="/images/brands/Chanel.png"
-          alt="Chanel"
-        />
-        <img
-          class="brands__logo"
-          src="/images/brands/Clinique.png"
-          alt="Clinque"
-        />
-        <img class="brands__logo" src="/images/brands/DIOR.png" alt="DIOR" />
-        <img
-          class="brands__logo"
-          src="/images/brands/Foot locker.png"
-          alt="DIOR"
-        />
-        <img class="brands__logo" src="/images/brands/Guess.png" alt="Guess" />
-        <img class="brands__logo" src="/images/brands/MAC.png" alt="MAC" />
-        <img
-          class="brands__logo"
-          src="/images/brands/Michael Kors.png"
-          alt="Kors"
-        />
-        <img class="brands__logo" src="/images/brands/Nike.png" alt="Nike" />
-        <img class="brands__logo" src="/images/brands/TH.png" alt="TH" />
-        <img
-          class="brands__logo"
-          src="/images/brands/Victorias Secret.png"
-          alt="Secret"
-        />
-        <img class="brands__logo" src="/images/brands/ZARA.png" alt="ZARA" />
+        <a href="https://adidas.com">
+          <img
+            class="brands__logo"
+            src="/images/brands/Adidas.png"
+            alt="Adidas"
+          />
+        </a>
+        <a href="https://amazon.com">
+          <img
+            class="brands__logo"
+            src="/images/brands/amazon.png"
+            alt="amazond"
+          />
+        </a>
+        <a href="https://armani.com">
+          <img
+            class="brands__logo"
+            src="/images/brands/Armani.png"
+            alt="armani"
+          />
+        </a>
+        <a href="https://bershka.com">
+          <img
+            class="brands__logo"
+            src="/images/brands/Berska.png"
+            alt="Berska"
+          />
+        </a>
+        <a href="https://hugoboss.com">
+          <img class="brands__logo" src="/images/brands/Boss.png" alt="Boss" />
+        </a>
+        <a href="https://chanel.com">
+          <img
+            class="brands__logo"
+            src="/images/brands/Chanel.png"
+            alt="Chanel"
+          />
+        </a>
+        <a href="https://clinique.com">
+          <img
+            class="brands__logo"
+            src="/images/brands/Clinique.png"
+            alt="Clinque"
+          />
+        </a>
+        <a href="https://dior.com">
+          <img class="brands__logo" src="/images/brands/DIOR.png" alt="DIOR" />
+        </a>
+        <a href="https://footlocker.com">
+          <img
+            class="brands__logo"
+            src="/images/brands/Foot locker.png"
+            alt="DIOR"
+          />
+        </a>
+        <a href="https://guess.eu">
+          <img
+            class="brands__logo"
+            src="/images/brands/Guess.png"
+            alt="Guess"
+          />
+        </a>
+        <a href="https://maccosmetics.com">
+          <img class="brands__logo" src="/images/brands/MAC.png" alt="MAC" />
+        </a>
+        <a href="https://michaelkors.com">
+          <img
+            class="brands__logo"
+            src="/images/brands/Michael Kors.png"
+            alt="Kors"
+          />
+        </a>
+        <a href="https://nike.com">
+          <img class="brands__logo" src="/images/brands/Nike.png" alt="Nike" />
+        </a>
+        <a href="https://tommy.com">
+          <img class="brands__logo" src="/images/brands/TH.png" alt="TH" />
+        </a>
+        <a href="https://victoriassecret.com">
+          <img
+            class="brands__logo"
+            src="/images/brands/Victorias Secret.png"
+            alt="Secret"
+          />
+        </a>
+        <a href="https://zara.com">
+          <img class="brands__logo" src="/images/brands/ZARA.png" alt="ZARA" />
+        </a>
       </div>
     </div>
   </section>

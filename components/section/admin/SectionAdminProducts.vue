@@ -130,7 +130,7 @@ async function changed() {
 <template>
   <section id="admin-products" class="admin-products">
     <div style="margin: 50px 0">
-      <UDivider label="Товары" />
+      <UDivider label="ТОВАРЫ" />
     </div>
     <UTabs :items="tabs" class="w-full" @change="onChange" />
     <UTable

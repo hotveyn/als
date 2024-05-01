@@ -1,11 +1,19 @@
+<script setup lang="ts">
+defineProps<{
+  link?: string;
+}>();
+</script>
+
 <template>
-  <button class="button-second">
+  <a v-if="link" target="_blank" :href="link" class="button-second"><slot /></a>
+  <button v-else class="button-second">
     <slot />
   </button>
 </template>
 
 <style scoped lang="scss">
 .button-second {
+  display: block;
   cursor: pointer;
   padding: 18px 29.5px;
   border: 2.5px solid black;

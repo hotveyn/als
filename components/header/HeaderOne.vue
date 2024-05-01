@@ -7,6 +7,7 @@ const burgerButton = () => {
   document.body.style.overflowY = isActive.value ? "hidden" : "auto";
 };
 const userView = useWindowSize();
+const { data: vk } = useFetch("/api/socials/vk");
 </script>
 
 <template>
@@ -37,7 +38,7 @@ const userView = useWindowSize();
             </li>
           </ul>
         </nav>
-        <ButtonSecond>Сделать заказ</ButtonSecond>
+        <ButtonSecond :link="vk?.value">Сделать заказ</ButtonSecond>
       </div>
       <div
         class="header__mobile"

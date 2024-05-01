@@ -16,6 +16,7 @@ const slideWidth = computed<number>(() => {
     return 97;
   }
 });
+const { data: vk } = useFetch("/api/socials/vk");
 </script>
 
 <template>
@@ -31,7 +32,9 @@ const slideWidth = computed<number>(() => {
             нами.
           </p>
           <!-- opener__button-desktop -->
-          <ButtonBase class="opener__button">Заказать подарок</ButtonBase>
+          <ButtonBase :link="vk?.value" class="opener__button"
+            >Заказать подарок</ButtonBase
+          >
         </div>
       </div>
       <div class="opener__right">
