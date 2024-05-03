@@ -122,7 +122,7 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
       <UFormGroup label="Сколько ещё длится акция" name="time">
         <UInput v-model="state.time" />
       </UFormGroup>
-      <UFormGroup label="Сколько ещё длится акция" name="conditions">
+      <UFormGroup label="Условия акции" name="conditions">
         <UTextarea
           v-model="state.conditions"
           autoresize

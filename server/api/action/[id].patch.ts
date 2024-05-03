@@ -19,7 +19,7 @@ export default defineEventHandler(async (e) => {
       description: body.description,
       priority: body.priority,
       imageName: body.imageName,
-      time: body.time,
+      time: body.title,
       title: body.time,
     },
   });
