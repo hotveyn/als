@@ -61,7 +61,7 @@ const state = reactive({
   name: action.value!.name,
   title: action.value!.title,
   description: action.value!.description,
-  imageName: action.value!.imageName,
+  imageName: action.value!.imageName || "",
   priority: action.value!.priority,
   time: action.value!.time,
   conditions: action

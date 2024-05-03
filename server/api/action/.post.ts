@@ -9,6 +9,7 @@ export default defineEventHandler(async (e) => {
       name: body.name,
       description: body.description,
       priority: body.priority,
+      imageName: body.imageName,
       time: body.time,
       title: body.time,
       conditions: {

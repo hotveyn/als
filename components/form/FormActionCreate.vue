@@ -33,12 +33,7 @@ const schema = objectAsync({
     minLength(3, "Длина хотя бы 3 символа"),
     maxLength(255, "Длина не больше 255 символов"),
   ]),
-  imageName: nullish(
-    string([
-      minLength(3, "Длина хотя бы 3 символа"),
-      maxLength(255, "Длина не больше 255 символов"),
-    ]),
-  ),
+  imageName: nullish(string([maxLength(255, "Длина не больше 255 символов")])),
   conditions: string([
     minLength(3, "Длина хотя бы 3 символа"),
     maxLength(1000, "Длина не больше 1000 символов"),
