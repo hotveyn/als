@@ -92,6 +92,9 @@ const { data: vk } = useFetch("/api/socials/vk");
 .opener {
   margin-top: 100px;
   width: 100%;
+  &__left {
+    z-index: 3;
+  }
   &__content {
     display: grid;
     grid-template-columns: 55% 45%;
@@ -120,7 +123,7 @@ const { data: vk } = useFetch("/api/socials/vk");
   }
 
   &__img {
-    z-index: -1;
+    z-index: 1;
     position: absolute;
     top: adpval(-150, -50, 1620, 880);
     max-width: adpval(554, 805, 1620, 880);

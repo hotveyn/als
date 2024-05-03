@@ -6,21 +6,24 @@ defineProps<{
     id: number;
     imageName: string;
     price: number;
+    vkLink: string;
   };
 }>();
 </script>
 
 <template>
-  <div class="card-last-order">
-    <img
-      :src="`/uploads/${order.imageName}.png`"
-      alt="orderLink"
-      class="card-last-order__img"
-    />
-    <p class="card-last-order__price">
-      {{ new Intl.NumberFormat("ru-RU").format(order.price) }}₽
-    </p>
-  </div>
+  <a :href="order.vkLink" target="_blank">
+    <div class="card-last-order">
+      <img
+        :src="`/uploads/${order.imageName}.png`"
+        alt="orderLink"
+        class="card-last-order__img"
+      />
+      <p class="card-last-order__price">
+        {{ new Intl.NumberFormat("ru-RU").format(order.price) }}₽
+      </p>
+    </div>
+  </a>
 </template>
 
 <style scoped lang="scss">
