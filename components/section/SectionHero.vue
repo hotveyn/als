@@ -125,7 +125,7 @@ const { data: vk } = useFetch("/api/socials/vk");
   &__img {
     z-index: 1;
     position: absolute;
-    top: adpval(-150, -50, 1620, 880);
+    top: adpval(-100, -50, 1620, 880);
     max-width: adpval(554, 805, 1620, 880);
   }
 }
@@ -208,7 +208,7 @@ const { data: vk } = useFetch("/api/socials/vk");
 @media screen and (max-width: 550px) {
   .opener {
     &__img {
-      left: -20%;
+      left: -33%;
     }
   }
 }

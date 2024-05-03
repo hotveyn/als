@@ -22,7 +22,7 @@ const { data: vk } = useFetch("/api/socials/vk");
             <li class="nav__el">
               <a class="nav__link" href="#hero">Главная</a>
             </li>
-            <li class="nav__el"><a class="nav__link" href="#hero">Акции</a></li>
+            <!-- <li class="nav__el"><a class="nav__link" href="#hero">Акции</a></li> -->
             <li class="nav__el">
               <a class="nav__link" href="#brands">Бренды</a>
             </li>
@@ -55,11 +55,11 @@ const { data: vk } = useFetch("/api/socials/vk");
                         >Главная</a
                       >
                     </li>
-                    <li class="nav__el">
+                    <!-- <li class="nav__el">
                       <a class="nav__link" href="#hero" @click="burgerButton"
                         >Акции</a
                       >
-                    </li>
+                    </li> -->
                     <li class="nav__el">
                       <a class="nav__link" href="#brands" @click="burgerButton"
                         >Бренды</a
@@ -190,6 +190,9 @@ const { data: vk } = useFetch("/api/socials/vk");
 }
 
 @media screen and (max-width: 800px) {
+  .nav {
+    margin-left: unset;
+  }
   .hidden__logo {
     opacity: 1;
   }
