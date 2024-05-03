@@ -44,7 +44,7 @@ const { data: vk } = useFetch("/api/socials/vk");
         <img class="opener__img" src="/images/alshero.png" alt="" />
       </div>
       <div class="opener__last last">
-        <p class="last__h">Последнии Заказы</p>
+        <p class="last__h">Последние Заказы</p>
         <Swiper
           class="last__orders"
           :modules="[SwiperPagination, SwiperNavigation]"
