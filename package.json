@@ -8,12 +8,13 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "prod": "node .output/server/index.mjs"
+    "prod": "dotenv -e .env -- node .output/server/index.mjs"
   },
   "dependencies": {
     "@nuxt/ui": "^2.15.2",
     "@prisma/client": "^5.12.1",
     "@vinejs/vine": "^2.0.0",
+    "dotenv-cli": "^7.4.1",
     "nuxt": "^3.11.1",
     "nuxt-swiper": "^1.2.2",
     "prisma": "^5.12.1",
