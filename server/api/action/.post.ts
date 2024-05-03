@@ -10,8 +10,8 @@ export default defineEventHandler(async (e) => {
       description: body.description,
       priority: body.priority,
       imageName: body.imageName,
-      time: body.title,
-      title: body.time,
+      time: body.time,
+      title: body.title,
       conditions: {
         createMany: {
           data: body.conditions.map((c: string) => {
