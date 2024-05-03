@@ -22,7 +22,7 @@ useSeoMeta({
       <SectionCatalog />
       <SectionCompute />
       <SectionWorks />
-      <SectionFAQ />
+      <!-- <SectionFAQ /> -->
     </div>
   </div>
 </template>
