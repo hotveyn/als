@@ -1,39 +1,29 @@
 <script setup lang="ts">
-import {
-  string,
-  objectAsync,
-  number,
-  minLength,
-  type Input,
-  maxLength,
-  minValue,
-  maxValue,
-  nullish,
-} from "valibot";
+import * as v from "valibot";
 import type { FormSubmitEvent } from "#ui/types";
 
-const schema = objectAsync({
-  name: string([
-    minLength(3, "Длина хотя бы 3 символа"),
-    maxLength(255, "Длина не больше 255 символов"),
+const schema = v.objectAsync({
+  name: v.string([
+    v.minLength(3, "Длина хотя бы 3 символа"),
+    v.maxLength(255, "Длина не больше 255 символов"),
   ]),
-  vkLink: string([
-    minLength(3, "Длина хотя бы 3 символа"),
-    maxLength(255, "Длина не больше 255 символов"),
+  vkLink: v.string([
+    v.minLength(3, "Длина хотя бы 3 символа"),
+    v.maxLength(555, "Длина не больше 555 символов"),
   ]),
-  imageName: nullish(
-    string([
-      minLength(3, "Длина хотя бы 3 символа"),
-      maxLength(255, "Длина не больше 255 символов"),
+  imageName: v.nullish(
+    v.string([
+      v.minLength(3, "Длина хотя бы 3 символа"),
+      v.maxLength(255, "Длина не больше 255 символов"),
     ]),
   ),
-  priority: number([
-    minValue(-99999999, "Слишком мало"),
-    maxValue(99999999, "Слишком много"),
+  priority: v.number([
+    v.minValue(-99999999, "Слишком мало"),
+    v.maxValue(99999999, "Слишком много"),
   ]),
-  price: number([
-    minValue(-99999999, "Слишком мало"),
-    maxValue(99999999, "Слишком много"),
+  price: v.number([
+    v.minValue(-99999999, "Слишком мало"),
+    v.maxValue(99999999, "Слишком много"),
   ]),
 });
 const props = defineProps<{
@@ -52,7 +42,7 @@ const { data: lastOrder } = await useFetch(`/api/last-orders/${props.id}`);
 const state = reactive({
   name: lastOrder.value!.name,
   vkLink: lastOrder.value!.vkLink,
-  imageName: lastOrder.value!.imageName,
+  imageName: lastOrder?.value!?.imageName || "",
   priority: lastOrder.value!.priority,
   price: lastOrder.value!.price,
 });

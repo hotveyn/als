@@ -19,7 +19,7 @@ const schema = objectAsync({
   ]),
   vkLink: string([
     minLength(3, "Длина хотя бы 3 символа"),
-    maxLength(255, "Длина не больше 255 символов"),
+    maxLength(555, "Длина не больше 555 символов"),
   ]),
   sale: number([
     minValue(-999999999, "Слишком мало"),
