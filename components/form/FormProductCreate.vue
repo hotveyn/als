@@ -39,7 +39,7 @@ const schema = objectAsync({
     minValue(-99999999, "Слишком мало"),
     maxValue(999999999, "Слишком много"),
   ]),
-  groupId: string(),
+  groupId: string("Нужно выбрать категорию"),
 });
 
 const { data: groups } = await useFetch("/api/group/");
@@ -68,7 +68,7 @@ const state = reactive({
   vkLink: "",
   sale: 0,
   salePrice: 0,
-  groupId: firstSelect.value || NaN,
+  groupId: String(firstSelect.value) || undefined,
   price: 0,
 });
 

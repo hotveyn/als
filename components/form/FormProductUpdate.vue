@@ -39,7 +39,7 @@ const schema = objectAsync({
     minValue(-99999999, "Слишком мало"),
     maxValue(999999999, "Слишком много"),
   ]),
-  groupId: string(),
+  groupId: string("Нужно выбрать категорию"),
 });
 const props = defineProps<{
   id: number;
@@ -67,10 +67,10 @@ const state = reactive({
   name: product.value!.name,
   vkLink: product.value!.vkLink,
   sale: product.value!.sale,
-  imageName: product.value!.imageName,
+  imageName: product.value!.imageName || "",
   salePrice: product.value!.salePrice,
   price: product.value!.price,
-  groupId: product.value!.groupId,
+  groupId: String(product.value!.groupId) || undefined,
 });
 
 async function onSubmit(event: FormSubmitEvent<Schema>) {
