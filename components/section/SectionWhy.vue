@@ -91,7 +91,7 @@
 }
 .card-why {
   width: 100%;
-  height: 263px;
+  min-height: 263px;
 
   &__img {
     display: block;

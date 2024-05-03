@@ -157,4 +157,9 @@ watch(value, (old) => {
     grid-template-columns: 80% 14px 14px;
   }
 }
+@media screen and (max-width: 550px) {
+  .compute-menu__wrap {
+    grid-template-columns: 1fr;
+  }
+}
 </style>

@@ -9,7 +9,10 @@ defineProps<{
 
 <template>
   <div class="card-catalog">
-    <p v-if="product.sale" class="card-catalog__sale">
+    <p
+      v-if="product.sale != undefined && product.sale !== 0"
+      class="card-catalog__sale"
+    >
       SALE {{ product.sale }}%
     </p>
     <img
@@ -23,9 +26,13 @@ defineProps<{
       </p>
       <div class="card-catalog__prices">
         <p class="card-catalog__sale-price">
-          {{ new Intl.NumberFormat("ru-RU").format(product.salePrice) }}₽
+          {{
+            new Intl.NumberFormat("ru-RU").format(
+              product.salePrice === 0 ? product.price : product.salePrice,
+            )
+          }}₽
         </p>
-        <p class="card-catalog__price">
+        <p v-if="product.salePrice !== 0" class="card-catalog__price">
           {{ new Intl.NumberFormat("ru-RU").format(product.price) }}₽
         </p>
       </div>
