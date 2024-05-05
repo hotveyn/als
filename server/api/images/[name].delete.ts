@@ -17,6 +17,6 @@ export default defineEventHandler(async (e) => {
     await fs.unlink(resolve("uploads/", name));
   } catch (e) {
     console.error(e);
-    return createError({ statusCode: 500 });
+    return createError({ statusCode: 429 });
   }
 });
