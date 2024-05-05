@@ -14,7 +14,7 @@ export default defineEventHandler(async (e) => {
   if (!image) return createError({ statusCode: 404 });
   try {
     await prisma.image.deleteMany({ where: { name: image.name } });
-    await fs.unlink(resolve("public/uploads/", name));
+    await fs.unlink(resolve("uploads/", name));
   } catch (e) {
     console.error(e);
     return createError({ statusCode: 500 });

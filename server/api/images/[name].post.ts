@@ -17,14 +17,8 @@ export default defineEventHandler(async (e) => {
   const image = await prisma.image.findFirst({ where: { name } });
 
   if (image) return createError({ statusCode: 400 });
-  console.log(process.env.NODE_ENV);
-  console.log(resolve(".output/", "public/uploads/", name));
-  if (process.env.NODE_ENV === "production")
-    await fs.writeFile(
-      resolve(".output/", "public/uploads/", name),
-      file[0].data,
-    );
-  else await fs.writeFile(resolve("public/uploads/", name), file[0].data);
+
+  await fs.writeFile(resolve("uploads/", name), file[0].data);
   await prisma.image.create({
     data: { name },
   });
