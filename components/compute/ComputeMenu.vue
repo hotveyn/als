@@ -1,11 +1,25 @@
 <script setup lang="ts">
 import type { Kind } from "../section/SectionCompute.vue";
 
-defineProps<{
+const props = defineProps<{
   kind: Kind;
 }>();
 
 const value = ref(1);
+
+const { data: euro } = useFetch("/api/euro/");
+
+const mass = computed(() => value.value * props.kind.mass);
+const massInKg = computed(() => mass.value / 1000);
+const pricePerKg = computed(() => 7 * Number(euro.value!.value));
+const priceByMass = computed(() => massInKg.value * pricePerKg.value);
+const minimalPrice = computed(() => 15 * Number(euro.value!.value));
+
+const price = computed(() => {
+  if (priceByMass.value > minimalPrice.value) return priceByMass.value;
+
+  return minimalPrice.value;
+});
 
 watch(value, (old) => {
   if (old > 500) {
@@ -21,12 +35,12 @@ watch(value, (old) => {
     <div class="compute-menu__wrap">
       <div class="compute-menu__content">
         <div class="compute-menu__info">
-          <p class="p">Вес посылки в кг.</p>
+          <p class="p">Вес посылки в граммах.</p>
           <p class="p compute-menu__kolvo">{{ kind.text }}: {{ value }}</p>
         </div>
         <div class="compute-menu__input number-input">
           <p disabled class="number-input__input">
-            {{ Math.round(value * kind.mass) }}
+            {{ Math.round(mass) }}
           </p>
           <img
             class="number-input__icon"
@@ -44,9 +58,7 @@ watch(value, (old) => {
       </div>
       <div class="compute-menu__delivery">
         <p class="p">Доставка</p>
-        <div class="compute-menu__delivery-price">
-          {{ Math.round(value * kind.mass * kind.oneKgEqual) }}₽
-        </div>
+        <div class="compute-menu__delivery-price">{{ Math.round(price) }}₽</div>
       </div>
     </div>
     <p class="p compute-menu__sup">
@@ -110,6 +122,7 @@ watch(value, (old) => {
     font-size: 16px;
   }
 }
+
 @media screen and (max-width: 1050px) {
   .compute-menu {
     flex-wrap: wrap;
@@ -157,6 +170,7 @@ watch(value, (old) => {
     grid-template-columns: 80% 14px 14px;
   }
 }
+
 @media screen and (max-width: 550px) {
   .compute-menu__wrap {
     grid-template-columns: 1fr;
