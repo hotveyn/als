@@ -8,6 +8,7 @@ export default defineNuxtConfig({
     "@nuxt/ui",
     "nuxt-seo-experiments",
     "@nuxtjs/sitemap",
+    "nuxt-simple-robots",
   ],
   gtag: {
     // Your primary Google tag ID
@@ -15,6 +16,7 @@ export default defineNuxtConfig({
   },
   robots: {
     disallow: ["/login", "/admin"],
+    allow: "/",
   },
   site: {
     url: "https://als-shop.ru/",
@@ -22,9 +24,6 @@ export default defineNuxtConfig({
     description:
       "ALS — ваш надёжный партнёр в доставке товаров из Европы в Россию. Мы предоставляем быструю и надежную услугу доставки, помогая вам получить желанные товары известных европейских брендов прямо к вам домой. Оптимизируйте свой шоппинг с ALS уже сегодня!",
     defaultLocale: "ru",
-  },
-  seo: {
-    redirectToCanonicalSiteUrl: true,
   },
   vite: {
     css: {
