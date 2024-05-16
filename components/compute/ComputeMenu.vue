@@ -35,12 +35,12 @@ watch(value, (old) => {
     <div class="compute-menu__wrap">
       <div class="compute-menu__content">
         <div class="compute-menu__info">
-          <p class="p">Вес посылки в граммах.</p>
+          <p class="p">Вес посылки в килограммах.</p>
           <p class="p compute-menu__kolvo">{{ kind.text }}: {{ value }}</p>
         </div>
         <div class="compute-menu__input number-input">
           <p disabled class="number-input__input">
-            {{ Math.round(mass) }}
+            {{ massInKg.toFixed(2) }}
           </p>
           <img
             class="number-input__icon"
