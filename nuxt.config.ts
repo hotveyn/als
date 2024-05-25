@@ -12,7 +12,7 @@ export default defineNuxtConfig({
   ],
   gtag: {
     // Your primary Google tag ID
-    id: "G-YVRHRX7MPD",
+    id: "G-3JY7VX1H2M",
   },
   robots: {
     disallow: ["/login", "/admin"],
