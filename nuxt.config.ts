@@ -6,9 +6,10 @@ export default defineNuxtConfig({
     "@nuxtjs/google-fonts",
     "nuxt-swiper",
     "@nuxt/ui",
-    "nuxt-seo-experiments",
+    "@nuxtjs/seo",
     "@nuxtjs/sitemap",
     "nuxt-simple-robots",
+    "nuxt-gtag",
   ],
   gtag: {
     // Your primary Google tag ID
